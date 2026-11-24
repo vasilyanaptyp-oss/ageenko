@@ -391,3 +391,7 @@ main,section{overflow-x:clip}
 .cons .pill--lg{margin-top:2rem}
 .modal--cons .modal__x{margin-top:2.2rem}
 }
+
+.contacts__more{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem 3.2rem;margin:3.2rem 0 0;font-family:var(--serif);font-size:2rem}
+.contacts__more a{color:var(--pink);text-decoration:none;transition:opacity .25s}
+.contacts__more a:hover{opacity:.7}
