@@ -46,7 +46,7 @@
   <nav class="menu" id="menu" aria-label="Разделы">
     <a class="menu__i menu__i--1" href="#about"><span class="menu__n">01</span><span class="menu__l">( обо мне )</span></a>
     <a class="menu__i menu__i--2" href="#services"><span class="menu__n">02</span><span class="menu__l">( услуги )</span></a>
-    <a class="menu__i menu__i--3" href="#about"><span class="menu__n">03</span><span class="menu__l">( портфолио )</span></a>
+    <a class="menu__i menu__i--3" href="rasa-reset.html#otzyvy"><span class="menu__n">03</span><span class="menu__l">( отзывы )</span></a>
     <a class="menu__i menu__i--4" href="#contacts"><span class="menu__n">04</span><span class="menu__l">( контакты )</span></a>
   </nav>
 </header>
@@ -145,6 +145,8 @@
   <picture class="dosha__pol rv" style="--d:.3s">
     <img src="img/dosha_pol.webp" srcset="img/dosha_pol.webp 1x, img/dosha_pol@2x.webp 2x" width="308" height="302" alt="Дарья с коллегами, полароидный снимок и чек" loading="lazy" decoding="async">
   </picture>
+
+  <a class="pill pill--lg pill--wide dosha__test rv" style="--d:.35s" href="test.html">Пройти тест на дошу →</a>
 </section>
 
 <section class="services" id="services" aria-labelledby="services-h">
@@ -166,88 +168,32 @@
       <li class="sitem sitem--1 rv">
         <img class="sitem__n" src="img/num1.svg" width="123" height="114" alt="01" loading="lazy">
         <h3 class="sitem__h"><img src="img/s_rasa.svg" width="159" height="52" alt="Rasa" loading="lazy"></h3>
-        <p class="sitem__t"><span class="ln">Закрытое telegram-сообщество</span> <span class="ln">для тех, кто выбирает не</span> <span class="ln">быстрые решения, а систему,</span> <span class="ln">которая работает в долгую.</span></p>
-        <a class="more" href="#rasa">( подробнее )</a>
+        <p class="sitem__t">Закрытое telegram-сообщество для тех, кто выбирает не быстрые решения, а систему, которая работает в долгую.</p>
+        <button class="more" type="button" data-modal="m-rasa">( подробнее )</button>
       </li>
-      <li class="sitem sitem--2 rv" style="--d:.1s">
+      <li class="sitem sitem--2 rv" style="--d:.08s">
         <img class="sitem__n" src="img/num2.svg" width="120" height="114" alt="02" loading="lazy">
         <h3 class="sitem__h"><img src="img/s_child.svg" width="274" height="90" alt="Child Wellness" loading="lazy"></h3>
-        <p class="sitem__t"><span class="ln">Закрытое telegram-сообщество</span> <span class="ln">для родителей, которые хотят</span> <span class="ln">понимать здоровье своего</span> <span class="ln">ребенка глубже.</span></p>
+        <p class="sitem__t">Закрытое telegram-сообщество для родителей, которые хотят понимать здоровье своего ребенка глубже.</p>
         <button class="more" type="button" data-modal="m-child">( подробнее )</button>
       </li>
-      <li class="sitem sitem--3 rv" style="--d:.2s">
+      <li class="sitem sitem--3 rv" style="--d:.16s">
         <img class="sitem__n" src="img/num3.svg" width="144" height="114" alt="03" loading="lazy">
         <h3 class="sitem__h"><img src="img/s_consult.svg" width="391" height="51" alt="Consultation" loading="lazy"></h3>
-        <p class="sitem__t"><span class="ln">Краткое описание того, чем</span> <span class="ln">полезна личная консультация</span> <span class="ln">(подробное описание будет по</span> <span class="ln">кнопке “подробнее”)</span></p>
+        <p class="sitem__t">Введение в Аюрведу и Расаяну - омоложение, понимание дош, диета и образ жизни для внутреннего баланса.</p>
         <button class="more" type="button" data-modal="m-consult">( подробнее )</button>
+      </li>
+      <li class="sitem sitem--4 rv" style="--d:.24s">
+        <img class="sitem__n" src="img/num4.svg" width="123" height="114" alt="04" loading="lazy">
+        <h3 class="sitem__h"><img src="img/s_rasareset.svg" width="370" height="52" alt="Rasa Reset" loading="lazy"></h3>
+        <p class="sitem__t">Осенний 7-дневный антимарафон – перезагрузка <span class="sitem__price">€29</span></p>
+        <a class="more" href="rasa-reset.html">( подробнее )</a>
       </li>
     </ol>
 
     <picture class="services__bottom" aria-hidden="true">
       <img src="img/m_services_bottom.webp" width="390" height="63" alt="" loading="lazy" decoding="async">
     </picture>
-  </div>
-</section>
-
-<section class="rasa" id="rasa" aria-labelledby="rasa-h">
-  <picture class="rasa__bg">
-    <source media="(max-width: 699px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
-    <img src="img/rasa_bg.webp" srcset="img/rasa_bg.webp 1x, img/rasa_bg@2x.webp 2x" width="1440" height="1060" alt="" loading="lazy" decoding="async">
-  </picture>
-
-  <h2 class="rasa__title rv" id="rasa-h"><img src="img/t_rasa.svg" width="896" height="132" alt="Rasa Reset" loading="lazy"></h2>
-  <p class="rasa__sub rv" style="--d:.1s">Осенний 7-дневный антимарафон – перезагрузка</p>
-
-  <div class="rasa__nb rv">
-    <picture class="rasa__nbimg">
-      <source media="(max-width: 699px)" srcset="img/m_rasa_nb.webp">
-      <img src="img/rasa_nb.webp" srcset="img/rasa_nb.webp 1x, img/rasa_nb@2x.webp 2x" width="638" height="726" alt="" loading="lazy" decoding="async">
-    </picture>
-    <ol class="days">
-      <li><span class="day"><img src="img/day1.svg" width="216" height="42" style="--w:216.0" alt="DAY 01 – SLOW DOWN" loading="lazy"></span> <span class="ln">Замедлиться и выйти из режима</span> <span class="ln">постоянной спешки.</span></li>
-      <li><span class="day"><img src="img/day2.svg" width="188" height="42" style="--w:188.33" alt="DAY 02 – NOURISH" loading="lazy"></span> <span class="ln">Не ограничивать, а питать.</span></li>
-      <li><span class="day"><img src="img/day3.svg" width="185" height="42" style="--w:184.67" alt="DAY 03 – RELEASE" loading="lazy"></span> <span class="ln">Освободить пространство — физически</span> <span class="ln">и эмоционально.</span></li>
-      <li><span class="day"><img src="img/day4.svg" width="182" height="42" style="--w:182.33" alt="DAY 04 – RESTORE" loading="lazy"></span> <span class="ln">Вернуть телу то, чего ему часто не</span> <span class="ln">хватает больше всего, —</span> <span class="ln">полноценного восстановления.</span></li>
-      <li><span class="day"><img src="img/day5.svg" width="193" height="42" style="--w:193.33" alt="DAY 05 – BALANCE" loading="lazy"></span> <span class="ln">Найти свою точку равновесия.</span></li>
-      <li><span class="day"><img src="img/day6.svg" width="211" height="42" style="--w:211.0" alt="DAY 06 – RECONNECT" loading="lazy"></span> <span class="ln">Снова услышать тело.</span></li>
-      <li><span class="day"><img src="img/day7.svg" width="214" height="42" style="--w:213.67" alt="DAY 07 – INTEGRATE" loading="lazy"></span> <span class="ln">Не возвращаться к прежнему ритму,</span> <span class="ln">а забрать с собой то, что</span> <span class="ln">действительно работает.</span></li>
-    </ol>
-  </div>
-
-  <div class="rasa__pols">
-    <picture class="rasa__fig" aria-hidden="true">
-      <img src="img/m_rasa_fig.webp" width="250" height="334" alt="" loading="lazy" decoding="async">
-    </picture>
-    <picture class="rasa__pol1 rv" style="--d:.1s">
-      <img src="img/rasa_pol1.webp" srcset="img/rasa_pol1.webp 1x, img/rasa_pol1@2x.webp 2x" width="148" height="234" alt="Блины на завтрак, полароидный снимок" loading="lazy" decoding="async">
-    </picture>
-    <picture class="rasa__pol2 rv" style="--d:.2s">
-      <img src="img/rasa_pol2.webp" srcset="img/rasa_pol2.webp 1x, img/rasa_pol2@2x.webp 2x" width="252" height="306" alt="Дарья на рынке среди ящиков с помидорами, полароидный снимок" loading="lazy" decoding="async">
-    </picture>
-  </div>
-
-  <div class="daily rv" style="--d:.15s">
-    <h3 class="daily__h">Каждый день:</h3>
-    <ul class="daily__list">
-      <li>питание;</li>
-      <li>один маленький ритуал;</li>
-      <li>телесная практика;</li>
-      <li>восстановление;</li>
-      <li>короткое объяснение «почему».</li>
-    </ul>
-    <p class="daily__p daily__p--1"><span class="ln">7 дней не для того, чтобы «исправить</span> <span class="ln">себя», а для того, <em>чтобы замедлиться,</em></span></p>
-    <p class="daily__p daily__p--2"><span class="ln">услышать тело и вспомнить, что</span> <span class="ln"><em>хорошее самочувствие</em> начинается с</span> <span class="ln">правильного отношения к себе.</span></p>
-    <button class="more more--days" type="button" data-modal="m-days">( программа по дням )</button>
-  </div>
-
-  <div class="price rv" style="--d:.25s">
-    <div class="ticket">
-      <picture class="ticket__img">
-        <img src="img/rasa_ticket.webp" srcset="img/rasa_ticket.webp 1x, img/rasa_ticket@2x.webp 2x" width="408" height="202" alt="" loading="lazy" decoding="async">
-      </picture>
-      <p class="ticket__t"><span class="ticket__l">Стоимость:</span> <span class="ticket__eur">€29</span> <span class="ticket__rub">2&nbsp;800&nbsp;₽</span></p>
-    </div>
-    <a class="join" href="https://t.me/OhhDarya" target="_blank" rel="noopener">( вступить )</a>
   </div>
 </section>
 
@@ -290,34 +236,12 @@
     <button class="modal__x" type="button" data-close>( закрыть )</button>
   </div>
 </dialog>
-<dialog class="modal modal--paper modal--long" id="m-days" aria-labelledby="m-days-h">
-  <div class="modal__in">
-    <h2 class="modal__h modal__h--rasa" id="m-days-h"><img src="img/t_rasa.svg" width="896" height="132" alt="Rasa Reset"></h2>
-    <p class="modal__lead">7-дневная программа</p>
-    <ol class="modal__body dayx">
-      <li><h3 class="dayx__h"><img src="img/day1.svg" width="216" height="42" style="--w:216.0" alt="DAY 01 – SLOW DOWN"></h3>
-        <p>Замедлиться и выйти из режима постоянной спешки. Мягко переключить внимание с внешнего мира на тело, дыхание и собственное состояние.</p></li>
-      <li><h3 class="dayx__h"><img src="img/day2.svg" width="188" height="42" style="--w:188.33" alt="DAY 02 – NOURISH"></h3>
-        <p>Не ограничивать, а питать. Тёплая, простая и легко усваиваемая еда, вода и восстановление контакта с настоящим голодом и насыщением.</p></li>
-      <li><h3 class="dayx__h"><img src="img/day3.svg" width="185" height="42" style="--w:184.67" alt="DAY 03 – RELEASE"></h3>
-        <p>Освободить пространство — физически и эмоционально. Поддержать естественные процессы выведения, добавить мягкое движение и практики для ощущения лёгкости.</p></li>
-      <li><h3 class="dayx__h"><img src="img/day4.svg" width="182" height="42" style="--w:182.33" alt="DAY 04 – RESTORE"></h3>
-        <p>Вернуть телу то, чего ему часто не хватает больше всего, — полноценного восстановления. Сон, паузы, тепло и успокаивающие практики.</p></li>
-      <li><h3 class="dayx__h"><img src="img/day5.svg" width="193" height="42" style="--w:193.33" alt="DAY 05 – BALANCE"></h3>
-        <p>Найти свою точку равновесия. Посмотреть на питание, ритм дня, нагрузку и отдых через призму своей индивидуальной природы.</p></li>
-      <li><h3 class="dayx__h"><img src="img/day6.svg" width="211" height="42" style="--w:211.0" alt="DAY 06 – RECONNECT"></h3>
-        <p>Снова услышать тело. Через дыхание, прикосновение и осознанное движение заметить его сигналы и понять, что стоит за привычной усталостью, напряжением или дискомфортом.</p></li>
-      <li><h3 class="dayx__h"><img src="img/day7.svg" width="214" height="42" style="--w:213.67" alt="DAY 07 – INTEGRATE"></h3>
-        <p>Не возвращаться к прежнему ритму, а забрать с собой то, что действительно работает. Собрать личный набор ритуалов RASA и создать основу для более устойчивого состояния.</p></li>
-    </ol>
-    <button class="modal__x" type="button" data-close>( закрыть )</button>
-  </div>
-</dialog>
 <dialog class="modal modal--dark" id="m-vata" aria-labelledby="m-vata-h">
   <div class="modal__in">
     <img class="modal__frame" src="img/frame.svg" width="473" height="280" alt="" aria-hidden="true">
     <h2 class="modal__h" id="m-vata-h"><img src="img/n_vata.svg" width="265" height="62" alt="Vata Dosha"></h2>
     <p class="modal__t">Если вы часто чувствуете тревогу, усталость, сухость, нехватку опоры</p>
+    <a class="pill pill--lg pill--wide modal__test" href="test.html">Пройти тест на дошу →</a>
     <button class="modal__x" type="button" data-close>( закрыть )</button>
   </div>
 </dialog>
@@ -326,6 +250,7 @@
     <img class="modal__frame" src="img/frame.svg" width="473" height="280" alt="" aria-hidden="true">
     <h2 class="modal__h" id="m-pitta-h"><img src="img/n_pitta.svg" width="274" height="59" alt="Pitta Dosha"></h2>
     <p class="modal__t">Если вам свойственны напряжение, высокая чувствительность, стремление всё контролировать</p>
+    <a class="pill pill--lg pill--wide modal__test" href="test.html">Пройти тест на дошу →</a>
     <button class="modal__x" type="button" data-close>( закрыть )</button>
   </div>
 </dialog>
@@ -334,6 +259,14 @@
     <img class="modal__frame" src="img/frame.svg" width="473" height="280" alt="" aria-hidden="true">
     <h2 class="modal__h" id="m-kapha-h"><img src="img/n_kapha.svg" width="316" height="63" alt="Kapha Dosha"></h2>
     <p class="modal__t">Если вы сталкиваетесь с тяжестью, замедлением, ощущением, что энергии стало меньше</p>
+    <a class="pill pill--lg pill--wide modal__test" href="test.html">Пройти тест на дошу →</a>
+    <button class="modal__x" type="button" data-close>( закрыть )</button>
+  </div>
+</dialog>
+<dialog class="modal modal--paper" id="m-rasa" aria-labelledby="m-rasa-h">
+  <div class="modal__in">
+    <h2 class="modal__h" id="m-rasa-h"><img src="img/s_rasa.svg" width="159" height="52" alt="Rasa"></h2>
+    <p class="modal__t">Закрытое telegram-сообщество для тех, кто выбирает не быстрые решения, а систему, которая работает в долгую.</p>
     <button class="modal__x" type="button" data-close>( закрыть )</button>
   </div>
 </dialog>
@@ -344,10 +277,27 @@
     <button class="modal__x" type="button" data-close>( закрыть )</button>
   </div>
 </dialog>
-<dialog class="modal modal--paper" id="m-consult" aria-labelledby="m-consult-h">
+<dialog class="modal modal--dark modal--long modal--cons" id="m-consult" aria-labelledby="m-consult-h">
   <div class="modal__in">
-    <h2 class="modal__h" id="m-consult-h"><img src="img/s_consult.svg" width="391" height="51" alt="Consultation"></h2>
-    <p class="modal__t">Краткое описание того, чем полезна личная консультация (подробное описание будет по кнопке “подробнее”)</p>
+    <h2 class="vh" id="m-consult-h">Consultation</h2>
+    <article class="cons">
+      <h3 class="cons__h">consultation</h3>
+      <p class="cons__price">€45</p>
+      <p class="cons__t">Введение в Аюрведу и Расаяну - омоложение, понимание дош, диета и образ жизни для внутреннего баланса. Индивидуальный разбор продуктов питания для личного меню питания и образа жизни. Адаптация Расаяны в повседневность. Составление индивидуальной программы омоложения, с учетом превалирующей доши. Медитации и йога для улучшения качества жизни с учетом индивидуации.</p>
+      <a class="pill pill--lg" href="https://t.me/OhhDarya" target="_blank" rel="noopener">Записаться</a>
+    </article>
+    <article class="cons">
+      <h3 class="cons__h">consultation <span>follow-up</span></h3>
+      <p class="cons__price">€35</p>
+      <p class="cons__t">Глубокое понимание каждой из дош и элементов. Адаптация под сезонность своего меню и распорядка дня. Внедрение новых привычек. Подбор диеты и образа жизни с учетом превалирующей доши. Аюрведическая детоксикация. Продвинутые техники Расаяны. Роль умственного здоровья и эмоционального баланса. Медитативные и релаксационные техники для ума и духа.</p>
+      <a class="pill pill--lg" href="https://t.me/OhhDarya" target="_blank" rel="noopener">Записаться</a>
+    </article>
+    <article class="cons">
+      <h3 class="cons__h">premium personalized <span>guidance</span></h3>
+      <p class="cons__price">€150 <span>1 month</span></p>
+      <p class="cons__t"><strong>Индивидуальное ведение на 3 месяца</strong> — персональный путь к балансу, обновлению и гармонии через Аюрведу и Расаяну. Глубокая работа с дошами, индивидуальная стратегия питания и образа жизни, практики йоги и медитации. Формирование устойчивых привычек, поддержка энергии и эмоционального равновесия. Комплексный подход к омоложению и улучшению качества жизни с персональным сопровождением на каждом этапе.</p>
+      <a class="pill pill--lg" href="https://t.me/OhhDarya" target="_blank" rel="noopener">Записаться</a>
+    </article>
     <button class="modal__x" type="button" data-close>( закрыть )</button>
   </div>
 </dialog>

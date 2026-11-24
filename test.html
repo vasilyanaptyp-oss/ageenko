@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru" class="tp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which Dosha Are You? Тест на дошу: Дарья Агеенко</title>
+<meta name="description" content="Вата, Питта или Капха? Тест на дошу от Дарьи Агеенко: 11 вопросов, результат и рекомендации по питанию для вашей конституции.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2e3a32">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Which Dosha Are You? Тест на дошу">
+<meta property="og:description" content="Вата, Питта или Капха? Пройти тест и открыть свою дошу.">
+<meta property="og:image" content="img/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/montserrat-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/tests.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="tbg" aria-hidden="true"></div>
+
+<header class="thead" id="top">
+  <a class="tlogo lockup" href="index.html" aria-label="Агеенко Дарья: на главную">
+    <span class="lockup__h"><span class="lockup__sur">АГЕЕНКО</span> <span class="lockup__name">ДАРЬЯ</span></span>
+    <span class="lockup__tag" aria-hidden="true">
+      <img src="img/script.svg" width="602" height="48" alt="">
+      <img src="img/script.svg" width="602" height="48" alt="">
+      <img src="img/script.svg" width="602" height="48" alt="">
+    </span>
+  </a>
+  <button class="burger" type="button" aria-expanded="false" aria-controls="menu"><span class="burger__open">( меню )</span><span class="burger__close">( закрыть )</span></button>
+  <nav class="menu" id="menu" aria-label="Разделы">
+    <a class="menu__i" href="index.html#about"><span class="menu__n">01</span><span class="menu__l">( обо мне )</span></a>
+    <a class="menu__i" href="index.html#services"><span class="menu__n">02</span><span class="menu__l">( услуги )</span></a>
+    <a class="menu__i" href="rasa-reset.html#otzyvy"><span class="menu__n">03</span><span class="menu__l">( отзывы )</span></a>
+    <a class="menu__i" href="index.html#contacts"><span class="menu__n">04</span><span class="menu__l">( контакты )</span></a>
+  </nav>
+</header>
+
+<main class="quiz quiz--dosha" data-quiz="dosha">
+
+  <!-- вступление -->
+  <section class="scr tintro" data-screen="intro" aria-labelledby="t-h">
+    <div class="tintro__l">
+      <h1 class="ttl" id="t-h" aria-label="Which Dosha Are You?">
+        <img class="ttl__which" src="img/t_which.svg" width="603" height="234" alt="" aria-hidden="true">
+        <img class="ttl__dosha" src="img/t_dosha.svg" width="565" height="220" alt="" aria-hidden="true">
+        <img class="ttl__are" src="img/t_are.svg" width="287" height="161" alt="" aria-hidden="true">
+        <img class="ttl__you" src="img/t_you.svg" width="346" height="206" alt="" aria-hidden="true">
+      </h1>
+      <figure class="pol pol--chair">
+        <img src="img/t/p_chair.webp" srcset="img/t/p_chair.webp 1x, img/t/p_chair@2x.webp 2x" width="360" height="450" alt="Дарья сидит на стуле в студии" decoding="async">
+      </figure>
+      <figure class="pol pol--turmeric">
+        <img src="img/t/p_turmeric.webp" srcset="img/t/p_turmeric.webp 1x, img/t/p_turmeric@2x.webp 2x" width="360" height="360" alt="Куркума на металлическом блюде" loading="lazy" decoding="async">
+      </figure>
+      <figure class="pol pol--thali">
+        <img src="img/t/p_thali.webp" srcset="img/t/p_thali.webp 1x, img/t/p_thali@2x.webp 2x" width="360" height="360" alt="Тали: блюдо с несколькими пиалами" loading="lazy" decoding="async">
+      </figure>
+    </div>
+
+    <div class="tintro__go">
+      <button class="pill pill--cta pill--start" type="button" data-start>Пройти тест и открыть свою дошу&nbsp;<span class="arr" aria-hidden="true"></span></button>
+      <p class="tintro__meta">11 вопросов · ответы A, B или C</p>
+      <p class="saved" data-saved hidden>Ваша доша: <b data-saved-name></b> <button class="saved__open" type="button" data-saved-open>( посмотреть результат )</button></p>
+      <noscript><p class="tintro__meta">Тест работает только с включённым JavaScript.</p></noscript>
+    </div>
+
+    <div class="tcard">
+      <h2 class="tcard__h">Discover Your Dosha</h2>
+      <p>Прежде чем выбирать питание, уход или практики, важно понять главное: какая энергия преобладает именно в вас.</p>
+      <p>В философии Ayurveda существует три типа конституции — доши. Они влияют на всё: от состояния кожи и уровня энергии до того, как вы реагируете на стресс, отдыхаете и восстанавливаетесь.</p>
+      <p class="tcard__list">Vata Dosha · Pitta Dosha · Kapha Dosha</p>
+    </div>
+  </section>
+
+  <!-- вопросы -->
+  <section class="scr tq" data-screen="quiz" hidden aria-label="Вопросы теста">
+    <div class="paper">
+      <div class="q">
+        <div class="q__top">
+          <button class="q__back" type="button" data-back>( назад )</button>
+          <p class="q__prog" aria-live="polite"><span class="vh">Вопрос </span><span data-cur>01</span> / <span data-total>11</span></p>
+        </div>
+        <div class="q__bar" aria-hidden="true"><i data-bar></i></div>
+        <h2 class="q__h q__h--caps" data-qh tabindex="-1"></h2>
+        <p class="q__hint">выберите то, что ближе всего к вам</p>
+        <div class="q__list" data-list></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- результат -->
+  <section class="scr tres" data-screen="result" hidden aria-label="Результат теста">
+    <div class="res">
+      <div class="res__card" data-slot="card"></div>
+      <div class="res__pols" aria-hidden="true">
+        <figure class="pol pol--r1"><img src="img/t/p_thali.webp" srcset="img/t/p_thali.webp 1x, img/t/p_thali@2x.webp 2x" width="360" height="360" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="pol pol--r2"><img src="img/t/p_turmeric.webp" srcset="img/t/p_turmeric.webp 1x, img/t/p_turmeric@2x.webp 2x" width="360" height="360" alt="" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+    <div class="paper paper--rec">
+      <div class="recs" data-slot="rec"></div>
+    </div>
+    <div class="tend">
+      <a class="pill pill--cta" href="https://t.me/OhhDarya" target="_blank" rel="noopener">Записаться на консультацию</a>
+      <p class="tend__links">
+        <button class="tlink" type="button" data-restart>( пройти заново )</button>
+        <a class="tlink" href="rasa-check-in.html">( RASA CHECK-IN: что мне сейчас нужно? )</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot tfoot">
+  <p>© Дарья Агеенко</p>
+  <a href="https://t.me/OhhDarya" target="_blank" rel="noopener" aria-label="Telegram Дарьи: @OhhDarya">Telegram @OhhDarya</a>
+  <a href="#top">( наверх )</a>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="js/tests.js" defer></script>
+</body>
+</html>

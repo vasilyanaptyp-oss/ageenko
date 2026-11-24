@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru" class="tp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RASA CHECK-IN: что мне сейчас нужно? Дарья Агеенко</title>
+<meta name="description" content="RASA CHECK-IN: бесплатный мини-тест Дарьи Агеенко. 9 вопросов о вашем состоянии сегодня и ваш первый шаг: Slow Down, Release, Restore или Reconnect.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2e3a32">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="RASA CHECK-IN: что мне сейчас нужно?">
+<meta property="og:description" content="Бесплатный мини-тест: 9 вопросов о вашем состоянии сегодня.">
+<meta property="og:image" content="img/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/montserrat-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/tests.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="tbg" aria-hidden="true"></div>
+
+<header class="thead" id="top">
+  <a class="tlogo lockup" href="index.html" aria-label="Агеенко Дарья: на главную">
+    <span class="lockup__h"><span class="lockup__sur">АГЕЕНКО</span> <span class="lockup__name">ДАРЬЯ</span></span>
+    <span class="lockup__tag" aria-hidden="true">
+      <img src="img/script.svg" width="602" height="48" alt="">
+      <img src="img/script.svg" width="602" height="48" alt="">
+      <img src="img/script.svg" width="602" height="48" alt="">
+    </span>
+  </a>
+  <button class="burger" type="button" aria-expanded="false" aria-controls="menu"><span class="burger__open">( меню )</span><span class="burger__close">( закрыть )</span></button>
+  <nav class="menu" id="menu" aria-label="Разделы">
+    <a class="menu__i" href="index.html#about"><span class="menu__n">01</span><span class="menu__l">( обо мне )</span></a>
+    <a class="menu__i" href="index.html#services"><span class="menu__n">02</span><span class="menu__l">( услуги )</span></a>
+    <a class="menu__i" href="rasa-reset.html#otzyvy"><span class="menu__n">03</span><span class="menu__l">( отзывы )</span></a>
+    <a class="menu__i" href="index.html#contacts"><span class="menu__n">04</span><span class="menu__l">( контакты )</span></a>
+  </nav>
+</header>
+
+<main class="quiz quiz--checkin" data-quiz="checkin">
+
+  <!-- вступление -->
+  <section class="scr tintro tintro--ci" data-screen="intro" aria-labelledby="c-h">
+    <div class="tintro__l">
+      <h1 class="cttl" id="c-h" aria-label="RASA CHECK-IN">
+        <img class="cttl__rasa" src="img/t/t_rasa_word.svg" width="395" height="132" alt="" aria-hidden="true">
+        <span class="cttl__ci" aria-hidden="true">CHECK-IN</span>
+      </h1>
+      <p class="cttl__q">«что мне сейчас нужно?»</p>
+      <figure class="pol pol--calm">
+        <img src="img/t/p_calm.webp" srcset="img/t/p_calm.webp 1x, img/t/p_calm@2x.webp 2x" width="360" height="450" alt="Дарья с закрытыми глазами, чёрно-белый портрет" decoding="async">
+      </figure>
+      <figure class="pol pol--sea">
+        <img src="img/t/p_sea.webp" srcset="img/t/p_sea.webp 1x, img/t/p_sea@2x.webp 2x" width="360" height="360" alt="Море и чайки за кормой" loading="lazy" decoding="async">
+      </figure>
+      <figure class="pol pol--sage">
+        <img src="img/t/p_sage.webp" srcset="img/t/p_sage.webp 1x, img/t/p_sage@2x.webp 2x" width="360" height="450" alt="Пучок шалфея на тарелке" loading="lazy" decoding="async">
+      </figure>
+    </div>
+
+    <div class="tintro__go">
+      <button class="pill pill--cta pill--start" type="button" data-start>начать&nbsp;<span class="arr" aria-hidden="true"></span></button>
+      <p class="tintro__meta">9 вопросов · бесплатно</p>
+      <noscript><p class="tintro__meta">Тест работает только с включённым JavaScript.</p></noscript>
+    </div>
+
+    <div class="tcard">
+      <p>Ответьте на вопросы, не анализируя слишком долго. Выбирайте то, что наиболее похоже на ваше состояние сегодня, а не на то, каким вы хотели бы себя видеть.</p>
+      <p class="tcard__eq"><span>RASA Check-in <i>=</i> моё состояние сейчас.</span> <span>Dosha Profile <i>=</i> моя природная конституция.</span></p>
+    </div>
+  </section>
+
+  <!-- вопросы -->
+  <section class="scr tq" data-screen="quiz" hidden aria-label="Вопросы мини-теста">
+    <div class="paper">
+      <div class="q">
+        <div class="q__top">
+          <button class="q__back" type="button" data-back>( назад )</button>
+          <p class="q__prog" aria-live="polite"><span class="vh">Вопрос </span><span data-cur>01</span> / <span data-total>09</span></p>
+        </div>
+        <div class="q__bar" aria-hidden="true"><i data-bar></i></div>
+        <h2 class="q__h" data-qh tabindex="-1"></h2>
+        <div class="q__list" data-list></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- результат -->
+  <section class="scr tres tres--ci" data-screen="result" hidden aria-label="Результат мини-теста">
+    <div class="cres" data-slot="card"></div>
+    <div class="paper paper--rec">
+      <div class="cres__body" data-slot="rec"></div>
+    </div>
+
+    <div class="cnext">
+      <p class="cnext__t">А теперь посмотрим, каким способом именно ваше тело восстанавливается лучше всего.</p>
+      <a class="pill pill--cta" href="test.html">Пройти большой тест на дошу&nbsp;<span class="arr" aria-hidden="true"></span></a>
+    </div>
+
+    <div class="cask">
+      <p class="cask__h">Your RASA is asking for <b data-slot="ask"></b>.</p>
+      <p>Возможно, вам сейчас не нужен ещё один список правил.</p>
+      <p>Вам нужно несколько дней, чтобы замедлиться, восстановить ритм и снова почувствовать своё тело.</p>
+      <p>Именно для этого создан RASA RESET.</p>
+      <p class="cask__trio">7 days · 7 rituals · 1 return to yourself</p>
+      <a class="pill pill--cta" href="https://t.me/OhhDarya" target="_blank" rel="noopener">Вступить&nbsp;<span class="arr" aria-hidden="true"></span></a>
+    </div>
+
+    <div class="tend tend--ci">
+      <p class="tend__links">
+        <button class="tlink" type="button" data-restart>( пройти заново )</button>
+        <a class="tlink" href="rasa-reset.html#program">( программа RASA RESET )</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot tfoot">
+  <p>© Дарья Агеенко</p>
+  <a href="https://t.me/OhhDarya" target="_blank" rel="noopener" aria-label="Telegram Дарьи: @OhhDarya">Telegram @OhhDarya</a>
+  <a href="#top">( наверх )</a>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="js/tests.js" defer></script>
+</body>
+</html>
