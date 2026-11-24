@@ -6,12 +6,31 @@
    - таблицы питания по дошам:   TABLES
    - 9 результатов теста:        RESULTS  (поле text: абзацы рекомендаций Дарьи)
    - вопросы и итоги мини-теста: CHECKIN_QUESTIONS, CHECKIN_RESULTS
-   Отзывы RASA RESET лежат прямо в rasa-reset.html (раздел #otzyvy). */
+   Отзывы RASA RESET лежат прямо в rasa-reset.html (раздел #otzyvy).
+
+   ИЗ РЕДАКТОРА САЙТА (admin/, читает js/cms-site.js) приходят: 9 текстов «Рекомендации по результатам»
+   (если поле пустое, остаётся RESULTS[..].text), описания трёх дош (те же, что на главной) и адрес Telegram. */
 (function () {
   'use strict';
   var doc = document, root = doc.documentElement;
   var TG = 'https://t.me/OhhDarya';
   var STORE_KEY = 'dasha_dosha';
+
+  /* содержимое из редактора сайта; пока его нет, работают тексты из этого файла */
+  function cms() { return window.DASHA_CMS || null; }
+  function tgUrl() { var c = cms(); return (c && c.vars && c.vars.tgurl) || TG; }
+  var DOSHA_KEY = { A: 'vata', B: 'pitta', C: 'kapha' };
+  function aboutText(letter) {
+    var c = cms(), v = c && c.flat ? c.flat('dosha.' + DOSHA_KEY[letter] + '.card') : '';
+    return v || DOSHAS[letter].about;
+  }
+  /* абзацы рекомендаций для результата: [[строка, строка], …] */
+  function recParas(key) {
+    var c = cms(), p = c && c.paras ? c.paras('test.rec.' + key) : [];
+    return p.length ? p : RESULTS[key].text.map(function (t) { return [t]; });
+  }
+  /* блок перерисовывается, только если его содержимое изменилось */
+  function setHtml(el, html) { if (el && el._html !== html) { el.innerHTML = html; el._html = html; } }
 
   /* ================= ТЕСТ НА ДОШУ ================= */
 
@@ -295,40 +314,40 @@
             nameImg(lead, sec ? 'ведущая' : '') +
             (sec ? '<span class="res__x" aria-hidden="true">×</span>' + nameImg(sec, 'вторая') : '') + '</h2>';
     h += '<div class="res__about">';
-    [lead, sec].forEach(function (d) {
-      if (!d) return;
-      h += '<p>' + (sec ? '<b>' + esc(d.name) + '</b> ' : '') + esc(d.about) + '</p>';
+    [r.lead, r.second].forEach(function (k) {
+      if (!k) return;
+      h += '<p>' + (sec ? '<b>' + esc(DOSHAS[k].name) + '</b> ' : '') + esc(aboutText(k)) + '</p>';
     });
     h += '</div>';
     if (counts) {
       h += '<p class="res__count">Ваши ответы: Vata&nbsp;(A)&nbsp;— ' + counts.A + ' · Pitta&nbsp;(B)&nbsp;— ' + counts.B +
            ' · Kapha&nbsp;(C)&nbsp;— ' + counts.C + '</p>';
     }
-    h += '<a class="pill pill--cta" href="' + TG + '" target="_blank" rel="noopener">Записаться на консультацию</a>';
-    slots.card.innerHTML = h;
+    h += '<a class="pill pill--cta" href="' + esc(tgUrl()) + '" target="_blank" rel="noopener">Записаться на консультацию</a>';
+    setHtml(slots.card, h);
 
-    var rec = '';
-    if (r.text && r.text.length) {
-      rec += '<div class="rec__own">' + r.text.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div>';
+    var rec = '', own = recParas(key);
+    if (own.length) {
+      rec += '<div class="rec__own">' + own.map(function (p) { return '<p>' + p.map(esc).join('<br>') + '</p>'; }).join('') + '</div>';
     }
     r.tables.forEach(function (id, i) { rec += tableHtml(id, i === 0); });
-    slots.rec.innerHTML = rec;
+    setHtml(slots.rec, rec);
   }
 
   function renderCheckin(slots, key) {
     var r = CHECKIN_RESULTS[key];
-    slots.card.innerHTML =
+    setHtml(slots.card,
       '<p class="cres__k">Your RASA State:</p>' +
       '<h2 class="cres__h" tabindex="-1"><span class="cres__num">' + r.num + '</span> ' +
-      '<span class="cres__name">' + esc(r.name) + '</span></h2>';
-    slots.rec.innerHTML =
+      '<span class="cres__name">' + esc(r.name) + '</span></h2>');
+    setHtml(slots.rec,
       '<p class="cres__need">' + esc(r.need) + '</p>' +
       '<p class="cres__t">' + esc(r.text) + '</p>' +
       '<h3 class="cres__sub">Ваш первый шаг:</h3>' +
       '<ol class="steps">' + r.steps.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ol>' +
       '<h3 class="cres__sub">Ваш RASA Ritual:</h3>' +
       '<p class="cres__rit">' + esc(r.ritual) + '</p>' +
-      (r.today ? '<p class="cres__today">' + esc(r.today) + '</p>' : '');
+      (r.today ? '<p class="cres__today">' + esc(r.today) + '</p>' : ''));
     if (slots.ask) slots.ask.textContent = r.name;
   }
 
@@ -366,7 +385,7 @@
       ask: box.querySelector('[data-slot="ask"]')
     };
     var embed = box.hasAttribute('data-embed');
-    var answers = [], idx = 0, lock = false;
+    var answers = [], idx = 0, lock = false, shown = null;
     if (el.total) el.total.textContent = pad(total);
 
     function show(name) {
@@ -408,6 +427,7 @@
       focus(el.qh);
     }
     function goResult(key, counts, push) {
+      shown = { key: key, counts: counts };
       cfg.render(slots, key, counts);
       show('result');
       if (push) history.pushState({ t: id, s: 'result', key: key, counts: counts || null }, '');
@@ -486,6 +506,10 @@
       drawSaved();
     }
     box.classList.add('is-ready');
+    /* тексты из редактора пришли, когда результат уже на экране: он дополняется ими */
+    doc.addEventListener('cms:site', function () {
+      if (shown && box.getAttribute('data-on') === 'result') cfg.render(slots, shown.key, shown.counts);
+    });
   }
 
   Array.prototype.forEach.call(doc.querySelectorAll('[data-quiz]'), initQuiz);

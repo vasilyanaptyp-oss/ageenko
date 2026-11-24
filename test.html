@@ -110,7 +110,7 @@
       <div class="recs" data-slot="rec"></div>
     </div>
     <div class="tend">
-      <a class="pill pill--cta" href="https://t.me/OhhDarya" target="_blank" rel="noopener">Записаться на консультацию</a>
+      <a class="pill pill--cta" href="https://t.me/OhhDarya" target="_blank" rel="noopener" data-c-href="tg">Записаться на консультацию</a>
       <p class="tend__links">
         <button class="tlink" type="button" data-restart>( пройти заново )</button>
         <a class="tlink" href="rasa-check-in.html">( RASA CHECK-IN: что мне сейчас нужно? )</a>
@@ -125,13 +125,15 @@
   <nav class="foot__nav" aria-label="Разделы сайта">
     <a href="journal.html">Journal</a>
     <a href="box.html">RASA RITUAL KIT</a>
-    <a href="https://t.me/OhhDarya" target="_blank" rel="noopener" aria-label="Telegram Дарьи: @OhhDarya">Telegram @OhhDarya</a>
-    <a href="https://www.instagram.com/wellness_daria/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://t.me/OhhDarya" target="_blank" rel="noopener" aria-label="Telegram Дарьи: @OhhDarya" data-c-href="tg" data-c-aria="Telegram Дарьи: @{tg}" data-c-text="Telegram @{tg}">Telegram @OhhDarya</a>
+    <a href="https://www.instagram.com/wellness_daria/" target="_blank" rel="noopener" data-c-href="ig">Instagram</a>
   </nav>
   <a href="#top">( наверх )</a>
 </footer>
 
 <script src="js/main.js" defer></script>
+<script src="js/cms-site.js" defer></script>
 <script src="js/tests.js" defer></script>
+<script src="assets/js/cms.js" data-cms-api="https://vasylian-admin.vasilyanaptyp.workers.dev" data-cms-site="ageenko" defer></script>
 </body>
 </html>

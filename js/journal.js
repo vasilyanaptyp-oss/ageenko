@@ -1,4 +1,6 @@
-/* Journal: рубрики и карточки статей из js/journal-data.js (массив ARTICLES). Без библиотек. */
+/* Journal: рубрики и карточки статей. Статьи приходят из редактора сайта (admin/, раздел «Journal»; их отдаёт
+   js/cms-site.js) и открываются на article.html?id=…; пока в редакторе статей нет, берётся js/journal-data.js
+   (массив ARTICLES). Без библиотек. */
 (function () {
   'use strict';
   var doc = document;
@@ -42,15 +44,28 @@
     return (+m[3]) + ' ' + MONTHS[+m[2] - 1] + ' ' + m[1];
   }
 
-  var source = (typeof window.ARTICLES !== 'undefined' && Array.isArray(window.ARTICLES)) ? window.ARTICLES : [];
-  var articles = source.filter(function (a) {
-    return a && a.title && RUBRICS[a.rubric] && a.rubric !== 'all';
-  }).slice().sort(function (a, b) {
-    return String(b.date || '').localeCompare(String(a.date || ''));
-  });
+  var cms = window.DASHA_CMS || null;
+  var articles = [], current = 'all';
+  function load() {
+    var fromCms = cms && cms.articles ? cms.articles() : [];
+    if (fromCms.length) {
+      /* статьи из редактора: карточка ведёт на страницу статьи, если у статьи есть текст */
+      articles = fromCms.map(function (a) {
+        return { rubric: a.rubric, title: a.title, excerpt: a.excerpt, date: a.date, cmsImg: a.img, url: a.text ? 'article.html?id=' + encodeURIComponent(a.id) : '' };
+      });
+      return;
+    }
+    var source = (typeof window.ARTICLES !== 'undefined' && Array.isArray(window.ARTICLES)) ? window.ARTICLES : [];
+    articles = source.filter(function (a) {
+      return a && a.title && RUBRICS[a.rubric] && a.rubric !== 'all';
+    }).slice().sort(function (a, b) {
+      return String(b.date || '').localeCompare(String(a.date || ''));
+    });
+  }
+  load();
 
   function card(a) {
-    var url = safeUrl(a.url), img = safeUrl(a.img), ext = /^https:/i.test(url);
+    var url = safeUrl(a.url), img = a.cmsImg || safeUrl(a.img), ext = /^https:/i.test(url);
     var label = RUBRICS[a.rubric] + (a.rubric === 'doshi' && a.dosha ? ' · ' + a.dosha : '');
     var inner =
       (img ? '<img class="jcard__img" src="' + esc(img) + '" alt="" loading="lazy" decoding="async">' : '') +
@@ -64,6 +79,7 @@
 
   function select(id, push) {
     if (!RUBRICS[id]) id = 'all';
+    current = id;
     Array.prototype.forEach.call(tabs, function (t) {
       t.setAttribute('aria-selected', t.getAttribute('data-rubric') === id ? 'true' : 'false');
     });
@@ -83,7 +99,8 @@
     } else {
       el.list.innerHTML = '';
       el.list.hidden = true;
-      el.empty.hidden = false;
+      /* пока редактор не ответил, строка «статьи готовлю» не показывается: статьи могут прийти через мгновение */
+      el.empty.hidden = !!(cms && cms.pending);
     }
     if (push) {
       try { history.replaceState(null, '', id === 'all' ? window.location.pathname + window.location.search : '#' + id); } catch (e) { /* без адреса тоже работает */ }
@@ -105,4 +122,8 @@
   });
   window.addEventListener('hashchange', function () { select(window.location.hash.replace('#', ''), false); });
   select(window.location.hash.replace('#', '') || 'all', false);
+  /* содержимое из редактора пришло (или редактор не ответил): список рисуется заново */
+  function again() { load(); select(current, false); }
+  doc.addEventListener('cms:site', again);
+  doc.addEventListener('cms:ready', again);
 })();

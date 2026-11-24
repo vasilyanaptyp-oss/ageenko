@@ -52,7 +52,7 @@
         <img src="img/script.svg" width="602" height="48" alt="" aria-hidden="true">
         <img src="img/script.svg" width="602" height="48" alt="" aria-hidden="true">
       </h1>
-      <p class="jr-sub">Здесь древние знания Ayurveda становятся частью современной жизни — эстетично, понятно и применимо каждый день.</p>
+      <p class="jr-sub" data-cms="journal.sub">Здесь древние знания Ayurveda становятся частью современной жизни — эстетично, понятно и применимо каждый день.</p>
     </div>
     <div class="jr-pols">
       <figure class="pol pol--notes">
@@ -64,7 +64,7 @@
     </div>
   </section>
 
-  <!-- рубрики: порядок и названия = RUBRICS в js/journal.js -->
+  <!-- рубрики: порядок и названия = RUBRICS в js/journal.js; статьи добавляются в редакторе (admin/, раздел «Journal») -->
   <div class="jr-tabs" role="tablist" aria-label="Рубрики Journal">
     <button class="jr-tab" type="button" role="tab" aria-selected="true" aria-controls="jr-body" data-rubric="all">Все</button>
     <button class="jr-tab" type="button" role="tab" aria-selected="false" aria-controls="jr-body" data-rubric="doshi">Ayurveda: доши</button>
@@ -79,19 +79,19 @@
 
     <div class="jr-dosha" data-dosha>
       <h2 class="jr-h">Ayurveda: доши</h2>
-      <p class="jr-lead">Вата, Питта или Капха? В Ayurveda именно доша определяет, как мы чувствуем себя, восстанавливаемся, реагируем на стресс и даже как выглядит наша кожа.</p>
+      <p class="jr-lead" data-cms="journal.lead">Вата, Питта или Капха? В Ayurveda именно доша определяет, как мы чувствуем себя, восстанавливаемся, реагируем на стресс и даже как выглядит наша кожа.</p>
       <div class="jr-dcards">
         <article class="jr-dcard">
           <h3><img src="img/n_vata.svg" width="265" height="62" alt="Vata Dosha"></h3>
-          <p>Если вы часто чувствуете тревогу, усталость, сухость, нехватку опоры</p>
+          <p data-c="dosha.vata.card" data-c-as="flat">Если вы часто чувствуете тревогу, усталость, сухость, нехватку опоры</p>
         </article>
         <article class="jr-dcard">
           <h3><img src="img/n_pitta.svg" width="274" height="59" alt="Pitta Dosha"></h3>
-          <p>Если вам свойственны напряжение, высокая чувствительность, стремление всё контролировать</p>
+          <p data-c="dosha.pitta.card" data-c-as="flat">Если вам свойственны напряжение, высокая чувствительность, стремление всё контролировать</p>
         </article>
         <article class="jr-dcard">
           <h3><img src="img/n_kapha.svg" width="316" height="63" alt="Kapha Dosha"></h3>
-          <p>Если вы сталкиваетесь с тяжестью, замедлением, ощущением, что энергии стало меньше</p>
+          <p data-c="dosha.kapha.card" data-c-as="flat">Если вы сталкиваетесь с тяжестью, замедлением, ощущением, что энергии стало меньше</p>
         </article>
       </div>
       <a class="pill pill--cta" href="test.html">Пройти тест на дошу&nbsp;<span class="arr" aria-hidden="true"></span></a>
@@ -99,7 +99,7 @@
 
     <h2 class="jr-h jr-rub" data-rub-title hidden></h2>
     <div class="jr-list" data-list hidden></div>
-    <p class="jr-empty" data-empty>Первые статьи готовлю, загляните чуть позже.</p>
+    <p class="jr-empty" data-cms="journal.empty" data-empty>Первые статьи готовлю, загляните чуть позже.</p>
 
   </section>
 
@@ -110,14 +110,16 @@
   <nav class="foot__nav" aria-label="Разделы сайта">
     <a href="journal.html">Journal</a>
     <a href="box.html">RASA RITUAL KIT</a>
-    <a href="https://t.me/OhhDarya" target="_blank" rel="noopener" aria-label="Telegram Дарьи: @OhhDarya">Telegram @OhhDarya</a>
-    <a href="https://www.instagram.com/wellness_daria/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://t.me/OhhDarya" target="_blank" rel="noopener" aria-label="Telegram Дарьи: @OhhDarya" data-c-href="tg" data-c-aria="Telegram Дарьи: @{tg}" data-c-text="Telegram @{tg}">Telegram @OhhDarya</a>
+    <a href="https://www.instagram.com/wellness_daria/" target="_blank" rel="noopener" data-c-href="ig">Instagram</a>
   </nav>
   <a href="#top">( наверх )</a>
 </footer>
 
 <script src="js/main.js" defer></script>
+<script src="js/cms-site.js" defer></script>
 <script src="js/journal-data.js" defer></script>
 <script src="js/journal.js" defer></script>
+<script src="assets/js/cms.js" data-cms-api="https://vasylian-admin.vasilyanaptyp.workers.dev" data-cms-site="ageenko" defer></script>
 </body>
 </html>

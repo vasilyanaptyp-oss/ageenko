@@ -1,0 +1,915 @@
+{
+ "slug": "ageenko",
+ "api": "https://vasylian-admin.vasilyanaptyp.workers.dev",
+ "site": "../",
+ "title": "Дарья Агеенко",
+ "ui": "ru",
+ "uiLangs": [
+  "ru"
+ ],
+ "accent": "#2e3a32",
+ "sections": [
+  {
+   "id": "about",
+   "label": "Главная: обо мне",
+   "collapsed": true,
+   "fields": [
+    {
+     "key": "about.short",
+     "type": "textarea",
+     "label": "Текст в блокноте",
+     "max": 1000,
+     "rows": 12,
+     "help": "Каждая строка здесь = строка в блокноте. Пустая строка = новый абзац. Слова между звёздочками *вот так* станут розовыми с подчёркиванием. Если текст станет длиннее, буквы сами станут чуть мельче, чтобы он остался на странице блокнота."
+    },
+    {
+     "key": "about.photo",
+     "type": "image",
+     "label": "Фото в блокноте",
+     "default": "assets/orig/about_photo.webp",
+     "help": "Лучше вертикальное фото. Оно встанет на правую страницу блокнота под тем же наклоном, зажим останется поверх."
+    },
+    {
+     "key": "about.pol",
+     "type": "image",
+     "label": "Фото на полароиде",
+     "default": "assets/orig/about_pol.webp",
+     "help": "Вертикальное фото: оно встанет в рамку полароида под тем же наклоном."
+    },
+    {
+     "key": "about.lead",
+     "type": "text",
+     "label": "Окно «читать дальше»: первая строка",
+     "max": 80
+    },
+    {
+     "key": "about.full",
+     "type": "textarea",
+     "label": "Окно «читать дальше»: текст",
+     "max": 2400,
+     "rows": 14,
+     "help": "Пустая строка = новый абзац. Строки, которые начинаются с тире, идут списком."
+    }
+   ]
+  },
+  {
+   "id": "dosha",
+   "label": "Главная: три доши",
+   "collapsed": true,
+   "fields": [
+    {
+     "key": "dosha.vata.card",
+     "type": "textarea",
+     "label": "Vata: текст на карточке",
+     "max": 400,
+     "rows": 3,
+     "help": "Каждая строка здесь = строка на сайте (на компьютере). Лучше три короткие строки, как сейчас."
+    },
+    {
+     "key": "dosha.vata.more",
+     "type": "textarea",
+     "label": "Vata: текст в окне «изучить»",
+     "max": 400,
+     "rows": 4,
+     "help": "Здесь можно рассказать подробнее. Enter = новая строка."
+    },
+    {
+     "key": "dosha.pitta.card",
+     "type": "textarea",
+     "label": "Pitta: текст на карточке",
+     "max": 400,
+     "rows": 3,
+     "help": "Каждая строка здесь = строка на сайте (на компьютере). Лучше три короткие строки, как сейчас."
+    },
+    {
+     "key": "dosha.pitta.more",
+     "type": "textarea",
+     "label": "Pitta: текст в окне «изучить»",
+     "max": 400,
+     "rows": 4,
+     "help": "Здесь можно рассказать подробнее. Enter = новая строка."
+    },
+    {
+     "key": "dosha.kapha.card",
+     "type": "textarea",
+     "label": "Kapha: текст на карточке",
+     "max": 400,
+     "rows": 3,
+     "help": "Каждая строка здесь = строка на сайте (на компьютере). Лучше три короткие строки, как сейчас."
+    },
+    {
+     "key": "dosha.kapha.more",
+     "type": "textarea",
+     "label": "Kapha: текст в окне «изучить»",
+     "max": 400,
+     "rows": 4,
+     "help": "Здесь можно рассказать подробнее. Enter = новая строка."
+    }
+   ],
+   "help": "Текст карточки показывается ещё в Journal и в результате теста на дошу."
+  },
+  {
+   "id": "services",
+   "label": "Главная: услуги",
+   "collapsed": true,
+   "fields": [
+    {
+     "key": "svc.1.text",
+     "type": "textarea",
+     "label": "01 Rasa: текст",
+     "max": 400,
+     "rows": 3
+    },
+    {
+     "key": "svc.1.more",
+     "type": "textarea",
+     "label": "01 Rasa: текст в окне «подробнее»",
+     "max": 400,
+     "rows": 5,
+     "help": "Enter = новая строка."
+    },
+    {
+     "key": "svc.2.text",
+     "type": "textarea",
+     "label": "02 Child Wellness: текст",
+     "max": 400,
+     "rows": 3
+    },
+    {
+     "key": "svc.2.more",
+     "type": "textarea",
+     "label": "02 Child Wellness: текст в окне «подробнее»",
+     "max": 400,
+     "rows": 5,
+     "help": "Enter = новая строка."
+    },
+    {
+     "key": "svc.3.text",
+     "type": "textarea",
+     "label": "03 Consultation: текст",
+     "max": 400,
+     "rows": 3,
+     "help": "Окно «подробнее» у консультаций собирается из раздела «Главная: консультации»."
+    },
+    {
+     "key": "svc.4.text",
+     "type": "textarea",
+     "label": "04 Rasa Reset: текст",
+     "max": 400,
+     "rows": 2,
+     "help": "«Подробнее» ведёт на страницу RASA RESET."
+    }
+   ],
+   "help": "Названия услуг (Rasa, Child Wellness …) нарисованы кистью, это картинки: их меняет Артур."
+  },
+  {
+   "id": "cons",
+   "label": "Главная: консультации",
+   "collapsed": true,
+   "fields": [
+    {
+     "key": "cons",
+     "type": "list",
+     "max": 6,
+     "label": "Консультации",
+     "help": "«Добавить» внизу списка создаёт новую карточку, стрелки меняют порядок.",
+     "fields": [
+      {
+       "key": "name",
+       "type": "text",
+       "max": 60,
+       "label": "Название"
+      },
+      {
+       "key": "name2",
+       "type": "text",
+       "max": 40,
+       "label": "Название, вторая строка",
+       "help": "Необязательно, например: follow-up."
+      },
+      {
+       "key": "price",
+       "type": "price",
+       "max": 20,
+       "label": "Цена",
+       "help": "Например €45."
+      },
+      {
+       "key": "note",
+       "type": "text",
+       "max": 40,
+       "label": "Подпись под ценой",
+       "help": "Необязательно, например: 1 month."
+      },
+      {
+       "key": "text",
+       "type": "textarea",
+       "max": 1500,
+       "rows": 7,
+       "label": "Описание",
+       "help": "Слова между звёздочками *вот так* будут подчёркнуты."
+      }
+     ]
+    }
+   ],
+   "help": "Карточки в окне «подробнее» у услуги Consultation. Кнопка «Записаться» ведёт в ваш Telegram."
+  },
+  {
+   "id": "contacts",
+   "label": "Контакты (на всех страницах)",
+   "collapsed": true,
+   "fields": [
+    {
+     "key": "contact.tg",
+     "type": "text",
+     "label": "Telegram: ваш ник",
+     "max": 40,
+     "help": "Например @OhhDarya. Меняется везде: кнопки «написать» и «Записаться», блок контактов, подвал."
+    },
+    {
+     "key": "contact.phone",
+     "type": "text",
+     "label": "Телефон",
+     "max": 40,
+     "format": "tel",
+     "help": "С кодом страны, например +373 79 447 325."
+    },
+    {
+     "key": "contact.ig",
+     "type": "text",
+     "label": "Instagram: ваш ник",
+     "max": 40,
+     "help": "Например @wellness_daria."
+    }
+   ]
+  },
+  {
+   "id": "reset",
+   "label": "RASA RESET: начало страницы, цена, кнопка",
+   "collapsed": true,
+   "fields": [
+    {
+     "key": "reset.kick",
+     "type": "text",
+     "label": "Строка под заголовком",
+     "max": 80
+    },
+    {
+     "key": "reset.oval",
+     "type": "textarea",
+     "label": "Надпись в овале",
+     "max": 400,
+     "rows": 2,
+     "help": "Две короткие строки."
+    },
+    {
+     "key": "reset.price",
+     "type": "price",
+     "label": "Стоимость",
+     "max": 20,
+     "help": "Показывается вверху и внизу страницы."
+    },
+    {
+     "key": "reset.photo",
+     "type": "image",
+     "label": "Фото вверху страницы",
+     "default": "assets/orig/rr_p0.webp",
+     "help": "Вертикальное фото. Оно встанет на лист бумаги на том же месте."
+    },
+    {
+     "key": "reset.idea",
+     "type": "textarea",
+     "label": "Вводный текст перед программой",
+     "max": 500,
+     "rows": 4
+    },
+    {
+     "key": "reset.daily",
+     "type": "textarea",
+     "label": "Список «Каждый день»",
+     "max": 400,
+     "rows": 5,
+     "help": "Каждая строка = один пункт."
+    },
+    {
+     "key": "reset.final",
+     "type": "textarea",
+     "label": "Финальная идея (после седьмого дня)",
+     "max": 400,
+     "rows": 3
+    },
+    {
+     "key": "reset.join.label",
+     "type": "text",
+     "label": "Надпись на большой кнопке «Вступить»",
+     "max": 80
+    },
+    {
+     "key": "reset.join.url",
+     "type": "text",
+     "label": "Куда ведут кнопки «Вступить»",
+     "max": 300,
+     "help": "Ссылка целиком, начинается с https://. Сейчас это ваш Telegram; сюда же можно вставить ссылку на оплату."
+    }
+   ]
+  },
+  {
+   "id": "days",
+   "label": "RASA RESET: программа по дням",
+   "collapsed": true,
+   "fields": [
+    {
+     "key": "reset.d1.photo",
+     "type": "image",
+     "label": "День 1, Slow Down: фото",
+     "default": "assets/orig/rr_p1.webp",
+     "help": "Вертикальное фото. Оно встанет на лист бумаги со скотчем на месте нынешнего."
+    },
+    {
+     "key": "reset.d1.text",
+     "type": "textarea",
+     "label": "День 1, Slow Down: описание",
+     "max": 400,
+     "rows": 4
+    },
+    {
+     "key": "reset.d1.ritual",
+     "type": "textarea",
+     "label": "День 1, Slow Down: ритуал",
+     "max": 400,
+     "rows": 4,
+     "help": "Каждая строка = один пункт."
+    },
+    {
+     "key": "reset.d2.photo",
+     "type": "image",
+     "label": "День 2, Nourish: фото",
+     "default": "assets/orig/rr_p2.webp",
+     "help": "Вертикальное фото. Оно встанет на лист бумаги со скотчем на месте нынешнего."
+    },
+    {
+     "key": "reset.d2.text",
+     "type": "textarea",
+     "label": "День 2, Nourish: описание",
+     "max": 400,
+     "rows": 4
+    },
+    {
+     "key": "reset.d2.ritual",
+     "type": "textarea",
+     "label": "День 2, Nourish: ритуал",
+     "max": 400,
+     "rows": 4,
+     "help": "Каждая строка = один пункт."
+    },
+    {
+     "key": "reset.d3.photo",
+     "type": "image",
+     "label": "День 3, Release: фото",
+     "default": "assets/orig/rr_p3.webp",
+     "help": "Вертикальное фото. Оно встанет на лист бумаги со скотчем на месте нынешнего."
+    },
+    {
+     "key": "reset.d3.text",
+     "type": "textarea",
+     "label": "День 3, Release: описание",
+     "max": 400,
+     "rows": 4
+    },
+    {
+     "key": "reset.d3.ritual",
+     "type": "textarea",
+     "label": "День 3, Release: ритуал",
+     "max": 400,
+     "rows": 4,
+     "help": "Каждая строка = один пункт."
+    },
+    {
+     "key": "reset.d4.photo",
+     "type": "image",
+     "label": "День 4, Restore: фото",
+     "default": "assets/orig/rr_p4.webp",
+     "help": "Вертикальное фото. Оно встанет на лист бумаги со скотчем на месте нынешнего."
+    },
+    {
+     "key": "reset.d4.text",
+     "type": "textarea",
+     "label": "День 4, Restore: описание",
+     "max": 400,
+     "rows": 4
+    },
+    {
+     "key": "reset.d4.ritual",
+     "type": "textarea",
+     "label": "День 4, Restore: ритуал",
+     "max": 400,
+     "rows": 4,
+     "help": "Каждая строка = один пункт."
+    },
+    {
+     "key": "reset.d5.photo",
+     "type": "image",
+     "label": "День 5, Balance: фото",
+     "default": "assets/orig/rr_p5.webp",
+     "help": "Вертикальное фото. Оно встанет на лист бумаги со скотчем на месте нынешнего."
+    },
+    {
+     "key": "reset.d5.text",
+     "type": "textarea",
+     "label": "День 5, Balance: описание",
+     "max": 400,
+     "rows": 4
+    },
+    {
+     "key": "reset.d5.ritual",
+     "type": "textarea",
+     "label": "День 5, Balance: ритуал",
+     "max": 400,
+     "rows": 4,
+     "help": "Каждая строка = один пункт."
+    },
+    {
+     "key": "reset.d6.photo",
+     "type": "image",
+     "label": "День 6, Reconnect: фото",
+     "default": "assets/orig/rr_p6.webp",
+     "help": "Вертикальное фото. Оно встанет на лист бумаги со скотчем на месте нынешнего."
+    },
+    {
+     "key": "reset.d6.text",
+     "type": "textarea",
+     "label": "День 6, Reconnect: описание",
+     "max": 500,
+     "rows": 4
+    },
+    {
+     "key": "reset.d6.ritual",
+     "type": "textarea",
+     "label": "День 6, Reconnect: ритуал",
+     "max": 400,
+     "rows": 4,
+     "help": "Каждая строка = один пункт."
+    },
+    {
+     "key": "reset.d7.photo",
+     "type": "image",
+     "label": "День 7, Integrate: фото",
+     "default": "assets/orig/rr_p7.webp",
+     "help": "Вертикальное фото. Оно встанет на лист бумаги со скотчем на месте нынешнего."
+    },
+    {
+     "key": "reset.d7.text",
+     "type": "textarea",
+     "label": "День 7, Integrate: описание",
+     "max": 500,
+     "rows": 4
+    },
+    {
+     "key": "reset.d7.ritual",
+     "type": "textarea",
+     "label": "День 7, Integrate: ритуал",
+     "max": 400,
+     "rows": 4,
+     "help": "Каждая строка = один пункт."
+    }
+   ],
+   "help": "Названия дней (Slow Down, Nourish …) нарисованы кистью, это картинки: их меняет Артур. Фото, описание и ритуал каждого дня меняются здесь."
+  },
+  {
+   "id": "reviews",
+   "label": "RASA RESET: отзывы",
+   "collapsed": true,
+   "fields": [
+    {
+     "key": "reset.reviews",
+     "type": "list",
+     "max": 30,
+     "label": "Отзывы",
+     "help": "«Добавить» внизу списка создаёт новый отзыв, стрелки меняют порядок. На сайте отзывы сами раскладываются в три колонки.",
+     "fields": [
+      {
+       "key": "name",
+       "type": "text",
+       "max": 60,
+       "label": "Имя",
+       "help": "Если оставить пустым, будет «Участница RASA RESET»."
+      },
+      {
+       "key": "text",
+       "type": "textarea",
+       "max": 1500,
+       "rows": 6,
+       "label": "Текст отзыва",
+       "help": "Пустая строка = новый абзац."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "box",
+   "label": "RASA RITUAL KIT",
+   "collapsed": true,
+   "fields": [
+    {
+     "key": "box.sub",
+     "type": "text",
+     "label": "Строка под заголовком",
+     "max": 110,
+     "help": "Показывается вверху страницы, на карточке внизу и на главной."
+    },
+    {
+     "key": "box.lead",
+     "type": "textarea",
+     "label": "Вводный текст",
+     "max": 500,
+     "rows": 4
+    },
+    {
+     "key": "box.photos",
+     "type": "list",
+     "max": 9,
+     "label": "Фото набора",
+     "help": "Первое фото стоит вверху страницы (в рамке конверта, вертикальное). Остальные фото показываются лентой под составом набора.",
+     "fields": [
+      {
+       "key": "photo",
+       "type": "image",
+       "label": "Фото",
+       "help": "Любое фото с телефона или компьютера, оно уменьшится само."
+      }
+     ]
+    },
+    {
+     "key": "box.idea",
+     "type": "textarea",
+     "label": "Главная идея: текст",
+     "max": 500,
+     "rows": 4
+    },
+    {
+     "key": "box.idea.list",
+     "type": "textarea",
+     "label": "Главная идея: строки справа",
+     "max": 400,
+     "rows": 3,
+     "help": "Каждая строка = один пункт."
+    },
+    {
+     "key": "box.i1.name",
+     "type": "text",
+     "label": "01: название",
+     "max": 80
+    },
+    {
+     "key": "box.i1.kind",
+     "type": "text",
+     "label": "01: подпись под названием",
+     "max": 80
+    },
+    {
+     "key": "box.i1.text",
+     "type": "textarea",
+     "label": "01: описание",
+     "max": 400,
+     "rows": 3
+    },
+    {
+     "key": "box.i2.name",
+     "type": "text",
+     "label": "02: название",
+     "max": 80
+    },
+    {
+     "key": "box.i2.kind",
+     "type": "text",
+     "label": "02: подпись под названием",
+     "max": 80
+    },
+    {
+     "key": "box.i2.text",
+     "type": "textarea",
+     "label": "02: описание",
+     "max": 400,
+     "rows": 3
+    },
+    {
+     "key": "box.i3.name",
+     "type": "text",
+     "label": "03: название",
+     "max": 80
+    },
+    {
+     "key": "box.i3.kind",
+     "type": "text",
+     "label": "03: подпись под названием",
+     "max": 80
+    },
+    {
+     "key": "box.i3.text",
+     "type": "textarea",
+     "label": "03: описание",
+     "max": 400,
+     "rows": 3
+    },
+    {
+     "key": "box.i4.name",
+     "type": "text",
+     "label": "04: название",
+     "max": 80
+    },
+    {
+     "key": "box.i4.kind",
+     "type": "text",
+     "label": "04: подпись под названием",
+     "max": 80
+    },
+    {
+     "key": "box.i4.text",
+     "type": "textarea",
+     "label": "04: описание",
+     "max": 500,
+     "rows": 3
+    },
+    {
+     "key": "box.i5.name",
+     "type": "text",
+     "label": "05: название",
+     "max": 80
+    },
+    {
+     "key": "box.i5.kind",
+     "type": "text",
+     "label": "05: подпись под названием",
+     "max": 80
+    },
+    {
+     "key": "box.i5.text",
+     "type": "textarea",
+     "label": "05: описание",
+     "max": 400,
+     "rows": 3
+    },
+    {
+     "key": "box.i5.cards",
+     "type": "textarea",
+     "label": "05: карточки",
+     "max": 400,
+     "rows": 5,
+     "help": "Каждая строка = одна карточка."
+    },
+    {
+     "key": "box.i6.name",
+     "type": "text",
+     "label": "06: название",
+     "max": 80
+    },
+    {
+     "key": "box.i6.kind",
+     "type": "text",
+     "label": "06: подпись под названием",
+     "max": 80
+    },
+    {
+     "key": "box.i6.text",
+     "type": "textarea",
+     "label": "06: описание",
+     "max": 400,
+     "rows": 3
+    },
+    {
+     "key": "box.i6.list",
+     "type": "textarea",
+     "label": "06: что внутри брошюры",
+     "max": 800,
+     "rows": 6,
+     "help": "Каждая строка = один пункт."
+    },
+    {
+     "key": "box.i7.name",
+     "type": "text",
+     "label": "07: название",
+     "max": 80
+    },
+    {
+     "key": "box.i7.kind",
+     "type": "text",
+     "label": "07: подпись под названием",
+     "max": 80
+    },
+    {
+     "key": "box.i7.text",
+     "type": "textarea",
+     "label": "07: описание",
+     "max": 400,
+     "rows": 3
+    },
+    {
+     "key": "box.bag",
+     "type": "textarea",
+     "label": "Текст про мешочек и приятные мелочи",
+     "max": 800,
+     "rows": 6,
+     "help": "Пустая строка = новый абзац."
+    },
+    {
+     "key": "box.btn",
+     "type": "text",
+     "label": "Надпись на кнопке",
+     "max": 80
+    },
+    {
+     "key": "box.url",
+     "type": "text",
+     "label": "Куда ведёт кнопка",
+     "max": 300,
+     "help": "Ссылка целиком, начинается с https://. Сейчас это ваш Telegram."
+    }
+   ]
+  },
+  {
+   "id": "journal",
+   "label": "Journal: статьи",
+   "collapsed": true,
+   "fields": [
+    {
+     "key": "journal.articles",
+     "type": "list",
+     "max": 40,
+     "default": [],
+     "label": "Статьи",
+     "help": "«Добавить» внизу списка создаёт новую статью. После «Сохранить» она появится в Journal в своей рубрике и будет открываться по нажатию на карточку.",
+     "fields": [
+      {
+       "key": "title",
+       "type": "text",
+       "max": 140,
+       "label": "Заголовок"
+      },
+      {
+       "key": "rubric",
+       "type": "text",
+       "max": 20,
+       "label": "Рубрика",
+       "choices": [
+        {
+         "v": "doshi",
+         "label": "Ayurveda: доши"
+        },
+        {
+         "v": "interview",
+         "label": "Wellness-интервью"
+        },
+        {
+         "v": "trends",
+         "label": "Тренды"
+        },
+        {
+         "v": "author",
+         "label": "Авторские статьи"
+        },
+        {
+         "v": "recipes",
+         "label": "Рецепты"
+        },
+        {
+         "v": "adaptation",
+         "label": "Современная адаптация"
+        }
+       ]
+      },
+      {
+       "key": "date",
+       "type": "text",
+       "max": 10,
+       "label": "Дата",
+       "help": "В виде 01.12.2026. Новые статьи показываются первыми.",
+       "placeholder": "01.12.2026"
+      },
+      {
+       "key": "excerpt",
+       "type": "textarea",
+       "max": 400,
+       "rows": 3,
+       "label": "Коротко о статье (текст на карточке)"
+      },
+      {
+       "key": "cover",
+       "type": "image",
+       "label": "Обложка",
+       "help": "Необязательно. Лучше вертикальное фото."
+      },
+      {
+       "key": "text",
+       "type": "textarea",
+       "max": 12000,
+       "rows": 14,
+       "label": "Текст статьи",
+       "help": "Пустая строка = новый абзац. Строка, которая начинается с #, станет подзаголовком. Строки, которые начинаются с тире, идут списком."
+      }
+     ]
+    },
+    {
+     "key": "journal.sub",
+     "type": "textarea",
+     "label": "Текст под заголовком Journal",
+     "max": 400,
+     "rows": 3
+    },
+    {
+     "key": "journal.lead",
+     "type": "textarea",
+     "label": "Текст рубрики «Ayurveda: доши»",
+     "max": 400,
+     "rows": 3
+    },
+    {
+     "key": "journal.empty",
+     "type": "text",
+     "label": "Строка в рубрике, где пока нет статей",
+     "max": 80
+    }
+   ]
+  },
+  {
+   "id": "test",
+   "label": "Тест на дошу: рекомендации по результатам",
+   "collapsed": true,
+   "fields": [
+    {
+     "key": "test.rec.A",
+     "type": "textarea",
+     "label": "Vata (больше всего ответов A)",
+     "max": 4000,
+     "rows": 6,
+     "placeholder": "Пока пусто: показывается только таблица питания"
+    },
+    {
+     "key": "test.rec.B",
+     "type": "textarea",
+     "label": "Pitta (больше всего ответов B)",
+     "max": 4000,
+     "rows": 6,
+     "placeholder": "Пока пусто: показывается только таблица питания"
+    },
+    {
+     "key": "test.rec.C",
+     "type": "textarea",
+     "label": "Kapha (больше всего ответов C)",
+     "max": 4000,
+     "rows": 6,
+     "placeholder": "Пока пусто: показывается только таблица питания"
+    },
+    {
+     "key": "test.rec.AB",
+     "type": "textarea",
+     "label": "Vata + Pitta (ведущая Vata)",
+     "max": 4000,
+     "rows": 6,
+     "placeholder": "Пока пусто: показывается только таблица питания"
+    },
+    {
+     "key": "test.rec.BA",
+     "type": "textarea",
+     "label": "Pitta + Vata (ведущая Pitta)",
+     "max": 4000,
+     "rows": 6,
+     "placeholder": "Пока пусто: показывается только таблица питания"
+    },
+    {
+     "key": "test.rec.AC",
+     "type": "textarea",
+     "label": "Vata + Kapha (ведущая Vata)",
+     "max": 4000,
+     "rows": 6,
+     "placeholder": "Пока пусто: показывается только таблица питания"
+    },
+    {
+     "key": "test.rec.CA",
+     "type": "textarea",
+     "label": "Kapha + Vata (ведущая Kapha)",
+     "max": 4000,
+     "rows": 6,
+     "placeholder": "Пока пусто: показывается только таблица питания"
+    },
+    {
+     "key": "test.rec.BC",
+     "type": "textarea",
+     "label": "Pitta + Kapha (ведущая Pitta)",
+     "max": 4000,
+     "rows": 6,
+     "placeholder": "Пока пусто: показывается только таблица питания"
+    },
+    {
+     "key": "test.rec.CB",
+     "type": "textarea",
+     "label": "Kapha + Pitta (ведущая Kapha)",
+     "max": 4000,
+     "rows": 6,
+     "placeholder": "Пока пусто: показывается только таблица питания"
+    }
+   ],
+   "help": "Текст появится в результате теста над таблицей питания. Пустая строка = новый абзац. Пока поле пустое, в результате показывается только таблица."
+  }
+ ]
+}

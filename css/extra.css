@@ -275,3 +275,123 @@ a.jcard:hover{translate:0 -.5rem}
 .jcard__d{margin-top:1.2rem;font-size:2.3rem}
 .jr-empty{padding:4.4rem 1rem 1rem;font-size:2.7rem;line-height:1.2}
 }
+
+/* ================= РЕДАКТОР (admin/): фото из редактора, лента фото набора, страница статьи =================
+   Всё ниже работает только с содержимым из редактора (js/cms-site.js); страницы без него выглядят как раньше. */
+
+/* буквы, которых нет в обрезанных шрифтах макета (в них только «@OhhDarya» и цифры цен): ник в Telegram и цены
+   консультаций теперь меняются в редакторе. Файлы загружаются, только если такая буква есть на странице. */
+@font-face{font-family:"Cormorant";src:url(../fonts/cormorant-300-more.woff2) format("woff2");font-weight:300;font-style:normal;font-display:swap;unicode-range:U+2D-2E,U+30-39,U+41-43,U+45-4E,U+50-5A,U+5F,U+62-67,U+69-71,U+73-78,U+7A}
+@font-face{font-family:"Montserrat";src:url(../fonts/montserrat-300-more.woff2) format("woff2");font-weight:300;font-style:normal;font-display:swap;unicode-range:U+21-2B,U+2D,U+3A-7E,U+A3,U+AB,U+BB,U+401,U+410-44F,U+451,U+2013-2014,U+20B4,U+20BD,U+2116}
+
+/* фото поверх коллажа по маске (блокнот и полароид на главной) */
+.cph{position:absolute;left:0;top:0;width:100%;height:100%;overflow:hidden;pointer-events:none;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100% 100%;mask-size:100% 100%}
+.cph img{position:absolute;max-width:none;object-fit:cover;transform-origin:0 0}
+
+/* фото на листе рваной бумаги со скотчем (RASA RESET): место, размер и наклон листа как у картинки из макета */
+.cph-sheet{display:block}
+.cph-sheet:not(.rs-photo){position:relative}
+.cph-sheet>img{display:block;width:100%;height:auto;visibility:hidden}
+.cph-sheet__r{position:absolute;display:block;translate:-50% -50%}
+.cph-sheet__p{position:absolute;inset:0;display:block;padding:4.6% 4.6% 5%;background:#e6e4de url(../img/m_paper.webp) center/40rem auto;
+  clip-path:polygon(0% 0.54%,2.17% 0.85%,4.35% 0.91%,6.52% 0.27%,8.7% 0.18%,10.87% 0.21%,13.04% 0.31%,15.22% 0.72%,17.39% 0.86%,19.57% 0.8%,21.74% 0.57%,23.91% 0.31%,26.09% 0.69%,28.26% 0.41%,30.43% 0.61%,32.61% 0.93%,34.78% 0.92%,36.96% 0.66%,39.13% 0.95%,41.3% 1.1%,43.48% 1.31%,45.65% 0.62%,47.83% 0.79%,50% 0.92%,52.17% 1.49%,54.35% 1.28%,56.52% 1.13%,58.7% 1.63%,60.87% 1.68%,63.04% 1.34%,65.22% 0.49%,67.39% 0.42%,69.57% 0.77%,71.74% 0.46%,73.91% 0.53%,76.09% 0.38%,78.26% 0.65%,80.43% 0.01%,82.61% 0.14%,84.78% 0.27%,86.96% 1.27%,89.13% 0.43%,91.3% 0.62%,93.48% 0.51%,95.65% 0.34%,97.83% 0.33%,99.24% 0%,99.02% 1.79%,98.81% 3.57%,99.18% 5.36%,99.27% 7.14%,99.18% 8.93%,99.52% 10.71%,99.18% 12.5%,99.43% 14.29%,99.03% 16.07%,99.7% 17.86%,99.55% 19.64%,99.21% 21.43%,99.72% 23.21%,99.77% 25%,99.87% 26.79%,99.56% 28.57%,99.37% 30.36%,99.02% 32.14%,98.93% 33.93%,99.18% 35.71%,99.2% 37.5%,99.12% 39.29%,99.51% 41.07%,99.57% 42.86%,98.89% 44.64%,98.87% 46.43%,98.81% 48.21%,98.68% 50%,99.26% 51.79%,99.1% 53.57%,98.5% 55.36%,98.92% 57.14%,98.6% 58.93%,98.8% 60.71%,98.88% 62.5%,99.07% 64.29%,98.52% 66.07%,98.07% 67.86%,98.37% 69.64%,98.62% 71.43%,98.46% 73.21%,98.71% 75%,98.5% 76.79%,98.65% 78.57%,98.2% 80.36%,98.87% 82.14%,98.54% 83.93%,98.93% 85.71%,99.37% 87.5%,98.88% 89.29%,98.18% 91.07%,98.18% 92.86%,98.31% 94.64%,98.54% 96.43%,98.35% 98.21%,100% 98.92%,97.83% 98.87%,95.65% 98.76%,93.48% 98.77%,91.3% 98.67%,89.13% 98.49%,86.96% 98.77%,84.78% 98.64%,82.61% 98.18%,80.43% 98.07%,78.26% 98.22%,76.09% 98.31%,73.91% 98.16%,71.74% 98.21%,69.57% 98.1%,67.39% 98.24%,65.22% 99.06%,63.04% 98.63%,60.87% 98.59%,58.7% 98.16%,56.52% 98.51%,54.35% 98.06%,52.17% 98.37%,50% 98.21%,47.83% 98.37%,45.65% 98.07%,43.48% 98.36%,41.3% 98.43%,39.13% 98.39%,36.96% 98.22%,34.78% 98.69%,32.61% 97.82%,30.43% 98.97%,28.26% 98.07%,26.09% 98.64%,23.91% 98.36%,21.74% 98.47%,19.57% 98.19%,17.39% 98.36%,15.22% 97.89%,13.04% 98.35%,10.87% 98.56%,8.7% 98.84%,6.52% 98.21%,4.35% 98.22%,2.17% 98.54%,0.87% 100%,0.39% 98.21%,0.97% 96.43%,0.86% 94.64%,1.32% 92.86%,1.32% 91.07%,0.94% 89.29%,1.26% 87.5%,1.55% 85.71%,1.45% 83.93%,1.75% 82.14%,1.86% 80.36%,1.87% 78.57%,1.96% 76.79%,1.63% 75%,0.97% 73.21%,1.38% 71.43%,0.73% 69.64%,1.21% 67.86%,1.37% 66.07%,1.64% 64.29%,1.72% 62.5%,1.31% 60.71%,1.66% 58.93%,1.22% 57.14%,0.86% 55.36%,1.43% 53.57%,0.99% 51.79%,1.63% 50%,1.38% 48.21%,1.36% 46.43%,1.36% 44.64%,1.67% 42.86%,1.42% 41.07%,0.98% 39.29%,1.36% 37.5%,1.01% 35.71%,1.59% 33.93%,1.34% 32.14%,1.61% 30.36%,1.15% 28.57%,1.21% 26.79%,1.24% 25%,1.61% 23.21%,1.25% 21.43%,1.9% 19.64%,1.18% 17.86%,1.41% 16.07%,1.46% 14.29%,1.15% 12.5%,0.66% 10.71%,0.72% 8.93%,1.19% 7.14%,0.58% 5.36%,0.59% 3.57%,1.29% 1.79%)}
+.cph-sheet__p img{display:block;width:100%;height:100%;object-fit:cover}
+.cph-sheet__t{position:absolute;left:31%;top:-4.4%;width:38%;height:9.5%;background:linear-gradient(90deg,rgba(214,209,198,.9),rgba(226,222,213,.82) 30%,rgba(205,200,189,.88) 62%,rgba(222,218,208,.84));rotate:-2deg;
+  clip-path:polygon(0 6%,3% 0,97% 3%,100% 0,99% 46%,100% 96%,96% 100%,4% 97%,0 100%,1.2% 52%)}
+
+/* лента фото набора RASA RITUAL KIT: появляется, когда в редакторе больше одного фото */
+.bx-gal[hidden]{display:none!important}
+.bx-gal__in{display:flex;flex-wrap:wrap;justify-content:center}
+.bx-gal__i{position:relative;margin:0;background:#f5f4f0;box-shadow:0 .8rem 2.4rem rgba(0,0,0,.42)}
+.bx-gal__i::before{content:"";position:absolute;left:31%;top:-1.1rem;width:38%;height:2.3rem;background:rgba(238,208,206,.86);rotate:-4deg;box-shadow:0 .1rem .3rem rgba(0,0,0,.16)}
+.bx-gal__i img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.bx-gal__i:nth-child(odd){rotate:-2.5deg}
+.bx-gal__i:nth-child(even){rotate:2deg}
+.bx-gal__i:nth-child(3n){rotate:-1deg}
+
+/* страница статьи Journal (article.html) */
+.ar{min-height:60rem}
+.ar-in[hidden],.ar-none[hidden],.ar-cover[hidden],.ar-date[hidden]{display:none!important}
+.ar-back{display:inline-flex;align-items:center;text-decoration:none}
+.ar-back .arr{rotate:180deg;margin-right:.5em}
+.ar-rub{font-family:var(--serif);font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);line-height:1.1}
+.ar-h{font-family:var(--serif);font-weight:400;line-height:1.04;letter-spacing:.01em;color:var(--white);overflow-wrap:break-word}
+.ar-date{font-family:var(--hand);color:var(--pink);line-height:1}
+.ar-cover{position:relative;margin:0;background:#f5f4f0;box-shadow:0 .8rem 2.4rem rgba(0,0,0,.42)}
+.ar-cover::before{content:"";position:absolute;left:31%;top:-1.1rem;width:38%;height:2.3rem;background:rgba(238,208,206,.86);rotate:-4deg;box-shadow:0 .1rem .3rem rgba(0,0,0,.16)}
+.ar-cover img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.ar-text p,.ar-text li{font-family:var(--serif);font-weight:500;color:#000}
+.ar-text h2{font-family:var(--hand);font-weight:400;line-height:1.05;color:var(--ink)}
+.ar-text li{position:relative}
+.ar-text li::before{content:"";position:absolute;border-radius:50%;background:#e07fa6}
+.ar-end{text-align:center}
+.ar-end__links{display:flex;flex-wrap:wrap;justify-content:center}
+.ar-none{font-family:var(--hand);color:#fff;text-align:center}
+.ar-none a{color:var(--pink)}
+
+@media (min-width:700px){
+.bx-gal{width:min(128rem,100% - 8rem);margin:11rem auto 0}
+.bx-gal__in{gap:5.4rem 4.6rem}
+.bx-gal__i{width:27rem;padding:1.3rem 1.3rem 4.6rem}
+
+.ar-head{position:relative;width:min(124rem,100% - 8rem);margin:0 auto;padding:1rem 0 4rem;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:7rem;align-items:center}
+.ar-back{grid-column:1/-1;justify-self:start;font-size:2.6rem}
+.ar-head__l{padding:4rem 0 3rem}
+.ar-rub{font-size:2rem}
+.ar-h{margin-top:1.8rem;font-size:7.4rem;max-width:84rem}
+.ar-date{margin-top:2.6rem;font-size:3.6rem}
+.ar .ar-cover{width:38rem;margin:3rem 3rem 2rem 0;padding:1.7rem 1.7rem 6rem;rotate:3deg}
+.ar-paper{margin-top:9rem}
+.ar-text{width:min(92rem,100% - 8rem);margin:0 auto;padding:4.6rem 0 5.6rem}
+.ar-text p,.ar-text li{font-size:2.7rem;line-height:1.3}
+.ar-text p+p,.ar-text ul+p,.ar-text p+ul{margin-top:1.6rem}
+.ar-text h2{font-size:4.6rem;margin-top:4rem}
+.ar-text h2:first-child{margin-top:0}
+.ar-text h2+p,.ar-text h2+ul{margin-top:1.6rem}
+.ar-text li{padding-left:3rem}
+.ar-text li+li{margin-top:.6rem}
+.ar-text li::before{left:.7rem;top:.56em;width:.8rem;height:.8rem}
+.ar-end{padding:15rem 2rem 9rem}
+.ar-end__links{gap:1.4rem 5rem;margin-top:3.6rem}
+.ar-end .tlink{font-size:2.6rem}
+.ar-none{padding:14rem 2rem 10rem;font-size:3.8rem}
+}
+
+@media (min-width:700px) and (max-width:1099px){
+.bx-gal,.ar-head{width:calc(100% - 6rem)}
+.bx-gal__i{width:23rem}
+.ar-head{column-gap:4rem}
+.ar-h{font-size:6rem}
+.ar .ar-cover{width:30rem;margin-right:1rem}
+}
+
+@media (max-width:699px){
+.cph--desk{display:none}
+
+.bx-gal{margin-top:7rem;padding:0 2rem}
+.bx-gal__in{gap:3.6rem 1.8rem}
+.bx-gal__i{width:16.4rem;padding:.8rem .8rem 2.8rem}
+
+.ar{min-height:40rem}
+.ar-head{padding:1.4rem 2rem 2rem}
+.ar-back{font-size:2.2rem;min-height:4.4rem}
+.ar-head__l{padding-top:1.6rem}
+.ar-rub{font-size:1.7rem}
+.ar-h{margin-top:1.2rem;font-size:4.1rem}
+.ar-date{margin-top:1.6rem;font-size:2.8rem}
+.ar .ar-cover{width:27rem;margin:4.2rem auto 0;padding:1.2rem 1.2rem 4.2rem;rotate:-2deg}
+.ar-paper{margin-top:8rem}
+.ar-text{padding:1.6rem 2.4rem 2.6rem}
+.ar-text p,.ar-text li{font-size:2.2rem;line-height:1.32}
+.ar-text p+p,.ar-text ul+p,.ar-text p+ul{margin-top:1.3rem}
+.ar-text h2{font-size:3.4rem;margin-top:3rem}
+.ar-text h2:first-child{margin-top:0}
+.ar-text h2+p,.ar-text h2+ul{margin-top:1.2rem}
+.ar-text li{padding-left:2.2rem}
+.ar-text li+li{margin-top:.5rem}
+.ar-text li::before{left:.5rem;top:.58em;width:.65rem;height:.65rem}
+.ar-end{padding:10.4rem 1.6rem 6rem}
+.ar-end__links{flex-direction:column;align-items:center;gap:.4rem;margin-top:2.2rem}
+.ar-end .tlink{font-size:2.2rem}
+.ar-none{padding:8rem 2rem 6rem;font-size:2.7rem;line-height:1.2}
+}
