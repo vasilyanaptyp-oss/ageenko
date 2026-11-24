@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru" class="tp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Journal: статьи об Ayurveda и wellness. Дарья Агеенко</title>
+<meta name="description" content="Journal Дарьи Агеенко: Ayurveda и доши (Vata, Pitta, Kapha), wellness-интервью, тренды, авторские статьи, рецепты и современная адаптация аюрведы.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2e3a32">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Journal: Дарья Агеенко">
+<meta property="og:description" content="Ayurveda × Modern Wellness: статьи, интервью, рецепты.">
+<meta property="og:image" content="img/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/montserrat-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/tests.css">
+<link rel="stylesheet" href="css/extra.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="tbg" aria-hidden="true"></div>
+
+<header class="thead" id="top">
+  <a class="tlogo lockup" href="index.html" aria-label="Агеенко Дарья: на главную">
+    <span class="lockup__h"><span class="lockup__sur">АГЕЕНКО</span> <span class="lockup__name">ДАРЬЯ</span></span>
+    <span class="lockup__tag" aria-hidden="true">
+      <img src="img/script.svg" width="602" height="48" alt="">
+      <img src="img/script.svg" width="602" height="48" alt="">
+      <img src="img/script.svg" width="602" height="48" alt="">
+    </span>
+  </a>
+  <button class="burger" type="button" aria-expanded="false" aria-controls="menu"><span class="burger__open">( меню )</span><span class="burger__close">( закрыть )</span></button>
+  <nav class="menu" id="menu" aria-label="Разделы">
+    <a class="menu__i" href="index.html#about"><span class="menu__n">01</span><span class="menu__l">( обо мне )</span></a>
+    <a class="menu__i" href="index.html#services"><span class="menu__n">02</span><span class="menu__l">( услуги )</span></a>
+    <a class="menu__i" href="rasa-reset.html#otzyvy"><span class="menu__n">03</span><span class="menu__l">( отзывы )</span></a>
+    <a class="menu__i" href="index.html#contacts"><span class="menu__n">04</span><span class="menu__l">( контакты )</span></a>
+  </nav>
+</header>
+
+<main class="jr">
+
+  <section class="jr-hero" aria-labelledby="jr-h">
+    <div class="jr-hero__l">
+      <h1 class="jr-ttl" id="jr-h">Journal
+        <img src="img/script.svg" width="602" height="48" alt="" aria-hidden="true">
+        <img src="img/script.svg" width="602" height="48" alt="" aria-hidden="true">
+      </h1>
+      <p class="jr-sub">Здесь древние знания Ayurveda становятся частью современной жизни — эстетично, понятно и применимо каждый день.</p>
+    </div>
+    <div class="jr-pols">
+      <figure class="pol pol--notes">
+        <img src="img/t/p_notes.webp" srcset="img/t/p_notes.webp 1x, img/t/p_notes@2x.webp 2x" width="360" height="450" alt="Блокнот, ручка и графин с водой на столе" decoding="async">
+      </figure>
+      <figure class="pol pol--bfast">
+        <img src="img/t/p_breakfast.webp" srcset="img/t/p_breakfast.webp 1x, img/t/p_breakfast@2x.webp 2x" width="360" height="360" alt="Завтрак: пирог с клубникой на тарелке" decoding="async">
+      </figure>
+    </div>
+  </section>
+
+  <!-- рубрики: порядок и названия = RUBRICS в js/journal.js -->
+  <div class="jr-tabs" role="tablist" aria-label="Рубрики Journal">
+    <button class="jr-tab" type="button" role="tab" aria-selected="true" aria-controls="jr-body" data-rubric="all">Все</button>
+    <button class="jr-tab" type="button" role="tab" aria-selected="false" aria-controls="jr-body" data-rubric="doshi">Ayurveda: доши</button>
+    <button class="jr-tab" type="button" role="tab" aria-selected="false" aria-controls="jr-body" data-rubric="interview">Wellness-интервью</button>
+    <button class="jr-tab" type="button" role="tab" aria-selected="false" aria-controls="jr-body" data-rubric="trends">Тренды</button>
+    <button class="jr-tab" type="button" role="tab" aria-selected="false" aria-controls="jr-body" data-rubric="author">Авторские статьи</button>
+    <button class="jr-tab" type="button" role="tab" aria-selected="false" aria-controls="jr-body" data-rubric="recipes">Рецепты</button>
+    <button class="jr-tab" type="button" role="tab" aria-selected="false" aria-controls="jr-body" data-rubric="adaptation">Современная адаптация</button>
+  </div>
+
+  <section class="jr-body" id="jr-body" role="tabpanel" aria-live="polite">
+
+    <div class="jr-dosha" data-dosha>
+      <h2 class="jr-h">Ayurveda: доши</h2>
+      <p class="jr-lead">Вата, Питта или Капха? В Ayurveda именно доша определяет, как мы чувствуем себя, восстанавливаемся, реагируем на стресс и даже как выглядит наша кожа.</p>
+      <div class="jr-dcards">
+        <article class="jr-dcard">
+          <h3><img src="img/n_vata.svg" width="265" height="62" alt="Vata Dosha"></h3>
+          <p>Если вы часто чувствуете тревогу, усталость, сухость, нехватку опоры</p>
+        </article>
+        <article class="jr-dcard">
+          <h3><img src="img/n_pitta.svg" width="274" height="59" alt="Pitta Dosha"></h3>
+          <p>Если вам свойственны напряжение, высокая чувствительность, стремление всё контролировать</p>
+        </article>
+        <article class="jr-dcard">
+          <h3><img src="img/n_kapha.svg" width="316" height="63" alt="Kapha Dosha"></h3>
+          <p>Если вы сталкиваетесь с тяжестью, замедлением, ощущением, что энергии стало меньше</p>
+        </article>
+      </div>
+      <a class="pill pill--cta" href="test.html">Пройти тест на дошу&nbsp;<span class="arr" aria-hidden="true"></span></a>
+    </div>
+
+    <h2 class="jr-h jr-rub" data-rub-title hidden></h2>
+    <div class="jr-list" data-list hidden></div>
+    <p class="jr-empty" data-empty>Первые статьи готовлю, загляните чуть позже.</p>
+
+  </section>
+
+</main>
+
+<footer class="foot tfoot">
+  <p>© Дарья Агеенко</p>
+  <nav class="foot__nav" aria-label="Разделы сайта">
+    <a href="journal.html">Journal</a>
+    <a href="box.html">RASA RITUAL KIT</a>
+    <a href="https://t.me/OhhDarya" target="_blank" rel="noopener" aria-label="Telegram Дарьи: @OhhDarya">Telegram @OhhDarya</a>
+    <a href="https://www.instagram.com/wellness_daria/" target="_blank" rel="noopener">Instagram</a>
+  </nav>
+  <a href="#top">( наверх )</a>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="js/journal-data.js" defer></script>
+<script src="js/journal.js" defer></script>
+</body>
+</html>
