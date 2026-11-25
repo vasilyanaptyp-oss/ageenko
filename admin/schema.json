@@ -158,6 +158,24 @@
      "max": 400,
      "rows": 2,
      "help": "«Подробнее» ведёт на страницу RASA RESET."
+    },
+    {
+     "key": "svc.5.text",
+     "type": "textarea",
+     "label": "05 Rasa Education: текст",
+     "max": 400,
+     "default": "Курсы и обучающие материалы об Ayurveda и современном wellness.",
+     "rows": 3,
+     "help": "«Подробнее» ведёт на страницу RASA Education."
+    },
+    {
+     "key": "svc.6.text",
+     "type": "textarea",
+     "label": "06 Rasa Detox: текст",
+     "max": 400,
+     "default": "14-дневная программа сезонного обновления через питание, аюрведические ритуалы, движение, дыхание и восстановление.",
+     "rows": 3,
+     "help": "«Подробнее» ведёт на страницу RASA SPRING DETOX."
     }
    ],
    "help": "Названия услуг (Rasa, Child Wellness …) нарисованы кистью, это картинки: их меняет Артур."
@@ -248,6 +266,13 @@
    "label": "RASA RESET: начало страницы, цена, кнопка",
    "collapsed": true,
    "fields": [
+    {
+     "key": "reset.cover",
+     "type": "image",
+     "label": "Обложка (вход на главной)",
+     "default": "assets/orig/cover_reset.webp",
+     "help": "Квадратная картинка (как ваши «лого для продуктов»): показывается целиком в ряду обложек на главной."
+    },
     {
      "key": "reset.kick",
      "type": "text",
