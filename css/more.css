@@ -1,0 +1,396 @@
+/* Дарья Агеенко: RASA Private Wellness Club (club.html), Child Wellness Club (kids-club.html), RASA Education
+   (education.html, material.html), вторая рамка входов на главной. Подключается после extra.css.
+   Единица та же: rem от ширины окна (компьютер 1/144, телефон 1/39). */
+
+.blot[hidden],.ed-sub[hidden],.ar-rub[hidden]{display:none!important}
+
+/* ---------- главная: окна услуг ведут на страницы клубов ---------- */
+.modal__go{font-family:var(--serif);font-weight:500;color:#000;text-decoration:underline;text-decoration-thickness:.045em;text-underline-offset:.16em;transition:opacity .25s}
+.modal__go:hover{opacity:.65}
+
+/* ---------- RASA Private Wellness Club ---------- */
+.cl-ttl{position:relative}
+.cl-ttl img{position:absolute;left:0;top:0}
+.cl-ttl span{position:absolute;font-family:var(--serif);font-weight:400;line-height:1;letter-spacing:.05em;text-transform:uppercase;color:var(--white);white-space:nowrap}
+.cl-lead{font-family:var(--hand);color:#fff}
+.cl-pols,.kc-pols{position:relative}
+.cl-not{text-align:center}
+.cl-not__t{font-family:var(--serif);font-weight:400;line-height:1.12;color:var(--white)}
+.cl-not__t span{display:block}
+.cl-not__t span+span{color:var(--pink)}
+.cl-bez{font-family:var(--hand);line-height:1.16;color:var(--pink);rotate:-3deg}
+.cl-bez span{display:block}
+.cl-deep__t{font-family:var(--serif);color:var(--white)}
+.cl-in,.cl-what{position:relative;scroll-margin-top:2rem}
+.cl-list{counter-reset:cl;border-top:.1rem solid rgba(241,241,241,.28)}
+.cl-list li{counter-increment:cl;display:grid;align-items:baseline;border-bottom:.1rem solid rgba(241,241,241,.28);font-family:var(--serif);color:var(--white)}
+.cl-list li::before{content:counter(cl,decimal-leading-zero);font-family:var(--serif);font-weight:300;color:var(--pink);line-height:1}
+.cl-key__card{text-align:center}
+.cl-key__card .cl-key__k{margin-top:0;font-weight:500;letter-spacing:.16em;text-transform:uppercase;line-height:1.1}
+.cl-ovals{display:flex;flex-wrap:wrap;justify-content:center;align-items:center}
+.cl-ovals li{border:.18rem solid var(--ink);border-radius:50%;font-family:var(--hand);color:var(--ink);line-height:1;white-space:nowrap}
+.cl-ovals li:nth-child(odd){rotate:-4deg}
+.cl-ovals li:nth-child(even){rotate:3deg}
+.cl-what__list li{break-inside:avoid}
+.cl-what__note{font-family:var(--hand);line-height:1.14;color:var(--pink);text-align:center;rotate:-2deg}
+.cl-end{position:relative;text-align:center}
+.cl-end__in p{font-family:var(--serif);color:var(--white)}
+.cl-end__pair{font-family:var(--hand);line-height:1.1;color:var(--pink)}
+.cl-end__pair span{display:inline-block}
+.cl-end__for{font-family:var(--serif);color:var(--white);margin-inline:auto}
+.cl-end .blot{margin-inline:auto}
+
+/* ---------- Child Wellness Club ---------- */
+.kc-ttl{position:relative}
+.kc-ttl__w{position:absolute;left:0;top:0;background:var(--pink);-webkit-mask:url(../img/s_child.svg) left top/100% 100% no-repeat;mask:url(../img/s_child.svg) left top/100% 100% no-repeat}
+.kc-ttl__c{position:absolute;font-family:var(--serif);font-weight:400;line-height:1;letter-spacing:.05em;text-transform:uppercase;color:var(--white);white-space:nowrap}
+.kc-lead{font-family:var(--hand)}
+.kc-lead span{display:block;color:#fff}
+.kc-lead span:first-child{color:var(--pink);line-height:1.05}
+.kc-year{position:relative;scroll-margin-top:2rem}
+.kc-eg{font-family:var(--hand);color:#fff;text-align:center;line-height:1}
+.kc-grid{display:grid;counter-reset:kc}
+.kc-m{counter-increment:kc;position:relative;color:#000;filter:drop-shadow(0 1.2rem 2rem rgba(0,0,0,.4))}
+.kc-m::before{content:"";position:absolute;inset:0;z-index:-1;background:#f1f1f1 url(../img/m_paper.webp) center/60rem auto;
+  clip-path:polygon(0 1.2%,6% 0,14% .9%,23% .2%,34% 1%,47% 0,58% .8%,70% .1%,81% 1.1%,92% .2%,100% .9%,99.3% 12%,100% 26%,99.2% 41%,99.9% 57%,99.1% 72%,100% 88%,99.4% 100%,90% 98.6%,78% 100%,66% 98.4%,53% 99.8%,41% 98.2%,29% 100%,17% 98.6%,7% 100%,0 98.8%,.7% 86%,0 70%,.8% 55%,.1% 39%,.9% 24%,0 11%)}
+.kc-m::after{content:"";position:absolute;left:50%;top:-1.1rem;background:rgba(238,208,206,.88);rotate:-2.5deg}
+.kc-m:nth-child(odd){rotate:-1.4deg}
+.kc-m:nth-child(even){rotate:1.1deg}
+.kc-m:nth-child(3n)::after{rotate:3deg}
+.kc-m__n{font-family:var(--hand);line-height:1;color:var(--ink)}
+.kc-m__n::before{content:counter(kc,decimal-leading-zero);display:block;font-family:var(--serif);font-weight:500;letter-spacing:.14em;line-height:1;color:#000;opacity:.55}
+.kc-m__t{font-family:var(--serif);font-weight:500;color:#000}
+.kc-m__t::before{content:"";display:block;background:#ffa6c6;rotate:-1.5deg;border-radius:1rem}
+
+/* ---------- RASA Education ---------- */
+.ed-body .jr-list{margin-top:0}
+
+/* ================= КОМПЬЮТЕР ================= */
+@media (min-width:700px){
+.modal__go{margin-top:2.6rem;font-size:2.3rem}
+.modal__go+.modal__x{margin-top:2rem}
+
+.cl-hero,.kc-hero{position:relative;width:min(124rem,100% - 8rem);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 50rem;column-gap:3rem;align-items:center;padding:1rem 0 5rem}
+.cl-ttl{height:27rem;margin-top:2rem}
+.cl-ttl img{width:42rem;height:14.05rem}
+.cl-ttl span{left:4.4rem;top:11.6rem;font-size:6.6rem}
+.cl-ttl span+span{top:19rem}
+.cl-lead{margin-top:2.2rem;max-width:64rem;font-size:3.4rem;line-height:1.2}
+.cl-pols,.kc-pols{height:60rem}
+.pol--c1{left:1rem;top:3rem;width:27rem;rotate:-5deg}
+.pol--c2{left:24rem;top:20rem;width:25rem;rotate:5deg}
+.cl-not{padding:8rem 2rem 0}
+.cl-not__t{font-size:5.6rem}
+.cl-method.bx-ideaw{margin-top:13rem}
+.cl-deep{width:min(108rem,100% - 8rem);margin:18rem auto 0;text-align:center}
+.cl-bez{font-size:5rem;rotate:-2deg}
+.cl-deep__t{margin:5.4rem auto 0;max-width:84rem;font-size:3.3rem;line-height:1.22}
+.cl-in{width:min(108rem,100% - 8rem);margin:15rem auto 0}
+.cl-list{margin-top:7rem}
+.cl-list li{grid-template-columns:10rem 1fr;padding:2.8rem 1rem 3rem;font-size:3.2rem;line-height:1.2}
+.cl-list li::before{font-size:2.6rem}
+.cl-key{width:min(92rem,100% - 8rem);margin:16rem auto 0}
+.cl-key__card.tcard{margin-top:0;padding:6.4rem 7rem 6.4rem;rotate:-1deg}
+.cl-key__card .cl-key__k{font-size:1.9rem}
+.cl-key__card .tcard__h{margin-top:1.8rem;font-size:6rem}
+.cl-key__card p{font-size:2.7rem}
+.cl-key__card .tcard__h+p{margin-top:2.6rem}
+.cl-ovals{gap:1.6rem 2.4rem;margin-top:3.4rem}
+.cl-ovals li{padding:1.3rem 3.6rem 1.8rem;font-size:3.4rem}
+.cl-what{width:min(108rem,100% - 8rem);margin:17rem auto 0}
+.cl-what__list.rs-list{margin-top:6rem;columns:2;column-gap:8rem;font-size:3.4rem}
+.cl-what__list li{margin-bottom:1rem}
+.cl-what__note{margin-top:6rem;font-size:3.8rem}
+.cl-end{padding:15rem 2rem 9rem}
+.cl-end__in p{font-size:3.8rem;line-height:1.2}
+.cl-end__in p+p{margin-top:3rem}
+.cl-end__pair{margin-top:6rem;font-size:4.8rem}
+.cl-end__pair span{margin:0 2.2rem}
+.cl-end__for{margin-top:4rem;max-width:72rem;font-size:2.9rem;line-height:1.22}
+.cl-end .blot{margin-top:4rem}
+.cl-end .pill--big{margin-top:5rem}
+
+.kc-ttl{height:26.4rem;margin-top:3rem}
+.kc-ttl__w{width:56rem;height:18.4rem}
+.kc-ttl__c{left:4.4rem;top:17rem;font-size:8.4rem}
+.kc-lead{margin-top:2.6rem;max-width:64rem}
+.kc-lead span{font-size:3.2rem;line-height:1.2}
+.kc-lead span:first-child{margin-bottom:1.4rem;font-size:5rem}
+.pol--k1{left:1rem;top:3rem;width:27rem;rotate:-5deg}
+.pol--k2{left:24rem;top:20rem;width:25rem;rotate:5deg}
+.kc-year{width:min(128rem,100% - 8rem);margin:10rem auto 0}
+.kc-year .rs-rev__h{font-size:6.4rem;rotate:-2deg}
+.kc-eg{margin-top:3.4rem;font-size:3.4rem}
+.kc-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:6rem 3rem;margin-top:7rem}
+.kc-m{min-height:25rem;padding:3.6rem 2.2rem 3.2rem}
+.kc-m::after{width:8rem;height:2.4rem;margin-left:-4rem}
+.kc-m__n{font-size:4rem}
+.kc-m__n::before{margin-bottom:1.2rem;font-size:1.8rem}
+.kc-m__t{font-size:2.5rem;line-height:1.16}
+.kc-m__t::before{width:5rem;height:.5rem;margin:1.4rem 0 1.6rem}
+.kc-end{padding:9rem 2rem 9rem}
+.kc-end .blot{margin-top:0}
+
+.ed-body{padding-top:5rem}
+.ed .jr-hero{padding-bottom:6rem}
+.ar-end .blot{margin:0 auto 3.4rem}
+}
+
+@media (min-width:700px) and (max-width:1099px){
+.cl-hero,.kc-hero{grid-template-columns:minmax(0,1fr) 40rem;width:calc(100% - 6rem)}
+.cl-ttl span{font-size:5.8rem}
+.kc-ttl__w{width:48rem;height:15.8rem}
+.kc-ttl__c{left:4rem;top:14.6rem;font-size:7.6rem}
+.pol--c1,.pol--k1{width:22rem}
+.pol--c2,.pol--k2{left:18rem;width:21rem}
+.cl-deep,.cl-in,.cl-what,.kc-year{width:calc(100% - 6rem)}
+.kc-grid{gap:5rem 2rem}
+.kc-m{padding-inline:1.6rem}
+.kc-m__t{font-size:2.3rem}
+}
+
+/* ================= ТЕЛЕФОН ================= */
+@media (max-width:699px){
+.modal__go{margin-top:2rem;padding:.6rem 0;font-size:2.1rem}
+.modal__go+.modal__x{margin-top:1.2rem}
+
+.cl-hero,.kc-hero{position:relative;padding-bottom:4rem}
+.cl-ttl{height:15.4rem;margin:1.2rem 0 0 1.8rem}
+.cl-ttl img{width:21rem;height:7.03rem}
+.cl-ttl span{left:1.2rem;top:6.2rem;font-size:3.7rem}
+.cl-ttl span+span{top:10.4rem}
+.cl-lead{margin:1.4rem 2.2rem 0;font-size:2.4rem;line-height:1.26}
+.cl-hero .bx-go,.kc-hero .bx-go{margin-top:2.2rem}
+.cl-pols,.kc-pols{height:27rem;margin-top:3rem}
+.pol--c1,.pol--k1{left:3rem;top:.4rem;width:16rem;rotate:-5deg}
+.pol--c2,.pol--k2{left:19.6rem;top:4rem;width:15.6rem;rotate:5deg}
+.cl-not{padding:4rem 2rem 0}
+.cl-not__t{font-size:3.2rem}
+.cl-method.bx-ideaw{margin-top:9.4rem}
+.cl-deep{margin-top:12rem;padding:0 2.2rem}
+.cl-bez{font-size:2.7rem}
+.cl-deep__t{margin-top:3.4rem;font-size:2.35rem;line-height:1.28}
+.cl-in{margin-top:10rem;padding:0 2rem}
+.cl-list{margin-top:4.6rem}
+.cl-list li{grid-template-columns:5.2rem 1fr;padding:2rem 0 2.2rem;font-size:2.3rem;line-height:1.24}
+.cl-list li::before{font-size:2.1rem}
+.cl-key{margin-top:10rem}
+.cl-key__card.tcard{margin:0 1.6rem;padding:4.6rem 2.2rem 4.4rem;rotate:-1deg}
+.cl-key__card .cl-key__k{font-size:1.6rem}
+.cl-key__card .tcard__h{margin-top:1.4rem;font-size:4rem}
+.cl-key__card p{font-size:2.2rem}
+.cl-key__card .tcard__h+p{margin-top:2rem}
+.cl-ovals{gap:1.2rem 1.4rem;margin-top:2.6rem}
+.cl-ovals li{padding:.9rem 2.4rem 1.3rem;font-size:2.6rem}
+.cl-what{margin-top:11rem;padding:0 2.2rem}
+.cl-what__list.rs-list{margin-top:4rem}
+.cl-what__list li{margin-bottom:.5rem}
+.cl-what__note{margin-top:4rem;font-size:2.8rem}
+.cl-end{padding:11rem 2rem 6rem}
+.cl-end__in p{font-size:2.6rem;line-height:1.24}
+.cl-end__in p+p{margin-top:2.2rem}
+.cl-end__pair{margin-top:4.4rem;font-size:3.3rem}
+.cl-end__pair span{display:block}
+.cl-end__pair span+span{margin-top:.6rem}
+.cl-end__for{margin-top:3.2rem;font-size:2.25rem;line-height:1.28}
+.cl-end .blot{margin-top:3rem}
+.cl-end .pill--big{margin-top:3.6rem}
+
+.kc-ttl{height:15.2rem;margin:1.6rem 0 0 1.8rem}
+.kc-ttl__w{width:30rem;height:9.86rem}
+.kc-ttl__c{left:1.6rem;top:9.2rem;font-size:5.2rem}
+.kc-lead{margin:1.6rem 2.2rem 0}
+.kc-lead span{font-size:2.35rem;line-height:1.26}
+.kc-lead span:first-child{margin-bottom:.9rem;font-size:3.5rem}
+.kc-year{margin-top:7rem;padding:0 1.6rem}
+.kc-year .rs-rev__h{font-size:3.6rem;line-height:1.1;text-align:center;rotate:-2deg}
+.kc-eg{margin-top:2.6rem;font-size:2.6rem}
+.kc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:4rem 1.6rem;margin-top:5rem}
+.kc-m{min-height:19rem;padding:2.8rem 1.5rem 2.4rem}
+.kc-m::after{width:6.4rem;height:2rem;margin-left:-3.2rem;top:-.9rem}
+.kc-m__n{font-size:3.1rem}
+.kc-m__n::before{margin-bottom:.9rem;font-size:1.6rem}
+.kc-m__t{font-size:2.05rem;line-height:1.2}
+.kc-m__t::before{width:4rem;height:.4rem;margin:1.1rem 0 1.2rem}
+.kc-end{padding:9rem 2rem 6rem}
+.kc-end .blot{margin-top:0}
+
+.ed-body{padding-top:3.4rem}
+.ar-end .blot{margin:0 auto 2.6rem}
+}
+
+/* ================= ОБЛОЖКИ ПРОДУКТОВ И RASA SPRING DETOX (25.11, вторая часть) =================
+   Обложки Дарьи квадратные: показываются целиком, без обрезки надписей. Меняются в редакторе (поле «Обложка»). */
+.cov{position:absolute;margin:0;background:#f5f4f0;box-shadow:0 1rem 2.6rem rgba(0,0,0,.45)}
+.cov::before{content:"";position:absolute;left:36%;top:-1.2rem;width:28%;height:2.6rem;background:rgba(238,208,206,.88);rotate:-3deg;z-index:1}
+.cov img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+.kc-pols .cov{display:none}
+.kc-pols.has-cover .cov{display:block}
+.kc-pols.has-cover .pol--k2{display:none}
+
+/* главная: ряд обложек-входов */
+.prods{display:grid}
+.prod{display:flex;flex-direction:column;align-items:center;color:var(--pink);text-decoration:none;transition:translate .35s var(--ease)}
+.prod:nth-child(odd) .prod__c{rotate:-1.2deg}
+.prod:nth-child(even) .prod__c{rotate:1deg}
+.prod__c{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;box-shadow:0 1rem 2.6rem rgba(0,0,0,.45);outline:.1rem solid rgba(241,241,241,.16);outline-offset:-.1rem}
+img.prod__c[hidden],.has-cover .prod__fb{display:none}
+.prod__fb{position:relative;background:#f1f1f1 url(../img/m_paper.webp) center/60rem auto}
+.prod__fb-w{position:absolute;left:9%;top:24%;width:82%;aspect-ratio:1643/540;background:var(--ink);-webkit-mask:url(../img/s_child.svg) left top/100% 100% no-repeat;mask:url(../img/s_child.svg) left top/100% 100% no-repeat}
+.prod__fb-c{position:absolute;left:12%;top:55%;font-family:var(--serif);font-weight:400;line-height:1;letter-spacing:.05em;text-transform:uppercase;color:var(--ink)}
+.prod__h{font-family:var(--hand);line-height:1.1;color:var(--pink);text-align:center}
+@media (hover:hover){.prod:hover{translate:0 -.5rem}}
+@media (prefers-reduced-motion:reduce){.prod{transition:none}.prod:hover{translate:none}}
+
+/* RASA SPRING DETOX */
+.dx-pols .blot{position:absolute}
+.dx-intro__h{font-family:var(--hand);font-weight:400;line-height:1.05;color:var(--ink)}
+.dx-intro__t p{font-family:var(--serif);font-weight:500;color:#000}
+.dx-pil{text-align:center}
+.dx-pil .dx-kick{margin-left:0;rotate:none}
+.dx-pils{display:grid;text-align:center}
+.dx-p{display:flex;flex-direction:column;align-items:center}
+.dx-p__a{font-family:var(--serif);font-weight:400;line-height:1;letter-spacing:.06em;text-transform:uppercase;color:var(--white)}
+.dx-p__b{font-family:var(--hand);line-height:1.12;color:var(--pink)}
+.dx-week .dx-week__k{margin-top:0;font-weight:500;letter-spacing:.16em;text-transform:uppercase;line-height:1.1}
+.dx-days{counter-reset:dx;border-top:.1rem solid rgba(0,0,0,.28)}
+.dx-week--2 .dx-days{counter-reset:dx 7}
+.dx-day{counter-increment:dx;display:grid;align-items:baseline;border-bottom:.1rem solid rgba(0,0,0,.28);font-family:var(--serif);font-weight:500;color:#000}
+.dx-day::before{content:counter(dx,decimal-leading-zero);opacity:.6;line-height:1}
+.dx-day__a{letter-spacing:.1em;text-transform:uppercase;line-height:1.1}
+.dx-what__lead{font-family:var(--serif);color:var(--white);text-align:center;margin-inline:auto}
+.dx-what__list{border-top:.1rem solid rgba(241,241,241,.28)}
+.dx-w{border-bottom:.1rem solid rgba(241,241,241,.28);font-family:var(--serif)}
+.dx-w__a{display:block;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);line-height:1.15}
+.dx-w__b{display:block;color:var(--white)}
+.dx-dosha__lead{text-align:center;margin-inline:auto}
+.jr-dcard .dx-dosha__k{font-family:var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--pink);line-height:1.15}
+.dx-end__price{display:flex;justify-content:center;align-items:center;text-align:left}
+.dx-end .dx-end__price .blot{margin:0;flex:none}
+.dx-end__list.rs-list{margin-top:0}
+
+@media (min-width:700px){
+.tfoot .foot__nav{row-gap:.4rem}
+.cl-pols--cov .pol--c1{left:0;top:1rem;width:21rem;rotate:-6deg}
+.cl-pols--cov .cov{right:0;top:13rem;width:37rem;padding:.9rem;rotate:3deg}
+.ed-pols{height:52rem}
+.ed-pols .cov{top:11rem;width:34rem}
+.kc-pols.has-cover .cov{right:0;top:17rem;width:32rem;padding:.9rem;rotate:4deg}
+.dx-pols .cov{right:1rem;top:4rem;width:41rem;padding:.9rem;rotate:4deg}
+.dx-pols .blot{left:-5rem;bottom:1rem}
+
+.prods{width:124rem;margin:5rem auto 0;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:3.4rem;padding-bottom:2rem}
+.prod__fb-c{font-size:4.6rem}
+.prod__h{margin-top:2.6rem;font-size:3.2rem;white-space:nowrap}
+.entry .prod .pill{margin-top:1.6rem}
+
+.dx-intro{margin-top:8rem}
+.dx-intro__in{width:min(92rem,100% - 8rem);margin:0 auto;padding:4.6rem 0 5.6rem}
+.dx-intro__h{font-size:6rem}
+.dx-intro__t{margin-top:3rem}
+.dx-intro__t p{font-size:2.8rem;line-height:1.26}
+.dx-intro__t p+p{margin-top:1.6rem}
+.dx-about .cl-deep__t:first-child{margin-top:0}
+.dx-about .cl-bez{margin-top:5rem}
+.dx-pil{width:min(124rem,100% - 8rem);margin:16rem auto 0}
+.dx-pil .dx-kick{margin-top:3.4rem;font-size:2.6rem}
+.dx-pils{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:6rem}
+.dx-p{padding:1rem 2.4rem 1.4rem}
+.dx-p+.dx-p{border-left:.1rem dashed rgba(255,166,198,.5)}
+.dx-p__a{font-size:4rem}
+.dx-p__b{margin-top:1.6rem;font-size:3rem}
+.dx-prog{width:min(124rem,100% - 8rem);margin:16rem auto 0;display:grid;grid-template-columns:1fr 1fr;column-gap:5rem;align-items:start;scroll-margin-top:4rem}
+.dx-week.tcard{grid-column:auto;grid-row:auto;margin-top:0;padding:5.6rem 4.6rem 4.8rem;rotate:-1deg}
+.dx-week--2.tcard{margin-top:6rem;rotate:1deg}
+.dx-week .dx-week__k{font-size:1.9rem}
+.dx-week .tcard__h{margin-top:1.4rem;font-size:6.4rem}
+.dx-week .dx-week__s{margin-top:1.6rem;font-size:2.6rem}
+.dx-days{margin-top:3.4rem}
+.dx-day{grid-template-columns:4.2rem 17.6rem 1fr;column-gap:1.4rem;padding:1.5rem 0 1.7rem}
+.dx-day::before{font-size:2.1rem}
+.dx-day__a{font-size:2.05rem}
+.dx-day__b{font-size:2.3rem;line-height:1.18}
+.dx-what__lead{margin-top:5rem;max-width:80rem;font-size:3rem;line-height:1.22}
+.dx-what__list{margin-top:5.4rem}
+.dx-w{display:grid;grid-template-columns:36rem 1fr;align-items:baseline;padding:2.6rem 1rem 2.8rem}
+.dx-w__a{font-size:2.5rem}
+.dx-w__b{font-size:3rem;line-height:1.2}
+.dx-dosha{width:min(124rem,100% - 8rem);margin:16rem auto 0}
+.dx-dosha__lead{max-width:84rem;font-size:3.3rem}
+.dx-dosha .jr-dcards{margin-top:7rem}
+.jr-dcard .dx-dosha__k{margin-top:2rem;font-size:2.2rem}
+.dx-end__price{gap:8rem;margin-bottom:10rem}
+.dx-end__list.rs-list{font-size:3.2rem}
+.dx-end__list li+li{margin-top:.5rem}
+.dx-end .dx-end__en{margin-top:5rem;font-size:4.2rem}
+}
+
+@media (min-width:700px) and (max-width:1099px){
+.cl-pols--cov .pol--c1{width:17rem}
+.cl-pols--cov .cov,.dx-pols .cov{width:30rem}
+.dx-pols .blot{left:-3rem}
+.prods{width:calc(100% - 6rem);column-gap:2.4rem}
+.prod__h{font-size:2.8rem;white-space:normal}
+.dx-pil,.dx-prog,.dx-dosha{width:calc(100% - 6rem)}
+.dx-prog{column-gap:3rem}
+.dx-week.tcard{padding-inline:3rem}
+.dx-day{grid-template-columns:3.6rem 15.4rem 1fr}
+.dx-day__a{font-size:1.8rem}
+.dx-p__a{font-size:3.2rem}
+.dx-w{grid-template-columns:30rem 1fr}
+}
+
+@media (max-width:699px){
+.cl-pols--cov{height:29rem}
+.cl-pols--cov .pol--c1{left:2rem;top:.4rem;width:13.4rem;rotate:-6deg}
+.cl-pols--cov .cov{left:13.6rem;top:3rem;width:23rem;padding:.6rem;rotate:3deg}
+.ed .jr-hero .cl-pols--cov{margin-top:3rem}
+.kc-pols.has-cover .cov{left:15.4rem;top:4rem;width:21rem;padding:.6rem;rotate:4deg}
+.dx-pols{height:31rem}
+.dx-pols .cov{left:9rem;top:.6rem;width:27rem;padding:.6rem;rotate:3deg}
+.dx-pols .blot{left:1rem;top:19rem}
+.dx-ttl.bx-ttl span{font-size:4rem}
+.dx-hero .bx-lead{margin-top:2rem}
+
+.prods{grid-template-columns:repeat(2,minmax(0,1fr));gap:4rem 2rem;margin-top:4.6rem;padding:0 1rem}
+.prod__fb-c{font-size:2.5rem}
+.prod__h{margin-top:1.8rem;min-height:2.2em;font-size:2.5rem}
+.entry .prod .pill{margin-top:1rem}
+
+.dx-intro{margin-top:6rem}
+.dx-intro__in{padding:1.6rem 2.4rem 2.6rem}
+.dx-intro__h{font-size:3.8rem}
+.dx-intro__t{margin-top:2rem}
+.dx-intro__t p{font-size:2.25rem;line-height:1.3}
+.dx-intro__t p+p{margin-top:1.3rem}
+.dx-about .cl-deep__t:first-child{margin-top:0}
+.dx-about .cl-bez{margin-top:3.4rem}
+.dx-pil{margin-top:10rem;padding:0 1.6rem}
+.dx-pil .dx-kick{margin-top:2.6rem;font-size:2rem}
+.dx-pils{grid-template-columns:repeat(2,minmax(0,1fr));gap:3.6rem 1.4rem;margin-top:4.4rem}
+.dx-p__a{font-size:2.5rem}
+.dx-p__b{margin-top:1rem;font-size:2.2rem}
+.dx-prog{margin-top:11rem;scroll-margin-top:3rem}
+.dx-week.tcard{margin:0 1.6rem;padding:4.6rem 2rem 3.6rem;rotate:-1deg}
+.dx-week--2.tcard{margin-top:6rem;rotate:1deg}
+.dx-week .dx-week__k{font-size:1.6rem}
+.dx-week .tcard__h{margin-top:1.2rem;font-size:4.6rem}
+.dx-week .dx-week__s{margin-top:1.2rem;font-size:2.2rem}
+.dx-days{margin-top:2.6rem}
+.dx-day{grid-template-columns:3.6rem 1fr;column-gap:.8rem;padding:1.3rem 0 1.5rem}
+.dx-day::before{font-size:1.9rem;grid-row:1/3}
+.dx-day__a{font-size:1.85rem}
+.dx-day__b{grid-column:2;margin-top:.4rem;font-size:2.1rem;line-height:1.22}
+.dx-what__lead{margin-top:3.6rem;font-size:2.3rem;line-height:1.28}
+.dx-what__list{margin-top:4rem}
+.dx-w{padding:1.8rem 0 2rem}
+.dx-w__a{font-size:1.95rem}
+.dx-w__b{margin-top:.5rem;font-size:2.3rem;line-height:1.24}
+.dx-dosha{margin-top:10rem;padding:0 2.2rem}
+.dx-dosha__lead{font-size:2.4rem}
+.dx-dosha .jr-dcards{margin-top:4.4rem}
+.jr-dcard .dx-dosha__k{margin-top:1.4rem;font-size:1.9rem}
+.dx-end__price{flex-direction:column;gap:3.4rem;margin-bottom:7rem}
+.dx-end__list li+li{margin-top:.4rem}
+.dx-end .dx-end__en{margin-top:3.6rem;font-size:2.9rem}
+}

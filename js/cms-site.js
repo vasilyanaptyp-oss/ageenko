@@ -1,7 +1,7 @@
 /* Дарья Агеенко: страницы показывают то, что сохранено в редакторе (сайт/admin/).
    Простые тексты, телефон и фото-поля подставляет assets/js/cms.js (метки data-cms, data-cms-tel). Этот файл делает то,
    что зависит от вёрстки сайта: тексты со строками и абзацами, списки, ссылки, фото в коллажах, отзывы, консультации,
-   статьи Journal. Подключается ПЕРЕД assets/js/cms.js. Пока редактор не знает сайт или сеть недоступна, страницы
+   статьи Journal, материалы RASA Education. Подключается ПЕРЕД assets/js/cms.js. Пока редактор не знает сайт или сеть недоступна, страницы
    остаются как есть: всё, что совпадает с вёрсткой, не перерисовывается.
 
    Метки в HTML:
@@ -12,7 +12,13 @@
                                    текст длиннее уменьшается, чтобы остаться на своём месте
      data-c-fitw="parent|селектор" одна строка, которая стоит в рисунке (ник под словом TELEGRAM, цена в пятне):
                                    новая строка длиннее места уменьшается до ширины родителя или соседа
-     data-c-href="tg|ig|join|box"  ссылка: Telegram, Instagram, кнопка «Вступить», кнопка набора
+     data-c-href="tg|ig|join|box|club|kids|detox"  ссылка: Telegram, Instagram, кнопка «Вступить», кнопка набора, кнопки клубов
+                                   и RASA SPRING DETOX (у них пустое поле ссылки = ваш Telegram)
+     data-c-cover="ключ"           обложка продукта без исходной картинки (Child Wellness Club): пока в редакторе её нет,
+                                   блок показывает свой запасной вид; с обложкой получает класс has-cover, а картинка
+                                   [data-c-cover-img] внутри показывает её
+     data-c-opt="ключ"             необязательная строка (цена клуба, строка под заголовком RASA Education): пока поле в редакторе
+                                   пустое, элемент или его рамка [data-c-optbox] скрыты
      data-c-text / data-c-aria     текст или aria-label с {tg} / {ig}
      data-c-ph="ключ"              фото: data-c-phas="mask" (поверх коллажа по маске), "sheet" (лист рваной бумаги),
                                    "cover" (то же место, обрезка по рамке)
@@ -255,6 +261,11 @@
     var j = httpsUrl(d['reset.join.url']), b = httpsUrl(d['box.url']);
     if (j) o.joinurl = j;
     if (b) o.boxurl = b;
+    var c = httpsUrl(d['club.url']), k = httpsUrl(d['kids.url']);
+    if (c) o.cluburl = c;
+    if (k) o.kidsurl = k;
+    var x = httpsUrl(d['detox.url']);
+    if (x) o.detoxurl = x;
     return o;
   }
   function tpl(s, v) {
@@ -265,7 +276,8 @@
   function applyVars(v) {
     $$('[data-c-href]').forEach(function (a) {
       if (a._h0 === undefined) a._h0 = a.getAttribute('href');
-      var u = v[a.getAttribute('data-c-href') + 'url'] || a._h0;
+      var hk = a.getAttribute('data-c-href');
+      var u = v[hk + 'url'] || ((hk === 'club' || hk === 'kids' || hk === 'detox') && v.tgurl) || a._h0;   /* клуб без своей ссылки ведёт в Telegram */
       if (a.getAttribute('href') !== u) a.setAttribute('href', u);
     });
     $$('[data-c-text]').forEach(function (el) {
@@ -522,6 +534,44 @@
     });
   }
 
+  /* ---------------------------------------------------------------- материалы RASA Education */
+  function materials() {
+    var list = CMS.data && CMS.data['edu.items'];
+    if (!Array.isArray(list)) return [];
+    var seen = {};
+    var s = function (x) { return squeeze(typeof x === 'string' ? x : ''); };
+    return list.map(function (a) {
+      a = a || {};
+      var title = s(a.title);
+      if (!title) return null;
+      var id = slug(title) || 'material';
+      seen[id] = (seen[id] || 0) + 1;
+      if (seen[id] > 1) id += '-' + seen[id];
+      return { id: id, title: title, kind: s(a.kind), excerpt: s(a.excerpt), img: upUrl(a.cover), text: MODES.blocks.canon(typeof a.text === 'string' ? a.text : ''),
+        price: s(a.price), btn: s(a.btn), url: httpsUrl(a.url) };
+    }).filter(Boolean);
+  }
+
+  /* ---------------------------------------------------------------- обложка продукта, у которой нет исходной картинки */
+  function applyCover(box, d) {
+    var url = upUrl(d[box.getAttribute('data-c-cover')]);
+    var img = box.querySelector('[data-c-cover-img]');
+    if (!img) return;
+    if (url) { if (img.getAttribute('src') !== url) img.setAttribute('src', url); }
+    else if (img.hasAttribute('src')) img.removeAttribute('src');
+    img.hidden = !url;
+    box.classList.toggle('has-cover', !!url);
+  }
+
+  /* ---------------------------------------------------------------- необязательные строки */
+  function applyOpt(el, d) {
+    var v = d[el.getAttribute('data-c-opt')];
+    v = typeof v === 'string' ? squeeze(v) : '';
+    var box = el.closest('[data-c-optbox]') || el;
+    if (v && el.textContent !== v) el.textContent = v;
+    if (box.hidden !== !v) box.hidden = !v;
+  }
+
   /* ---------------------------------------------------------------- всё вместе */
   function apply(d) {
     if (!d || typeof d !== 'object') return;
@@ -531,6 +581,8 @@
     $$('[data-c-cons]').forEach(function (el) { applyCons(el, d); });
     $$('[data-c-ph]').forEach(function (el) { if (el.hasAttribute('data-c-first')) firstPhoto(el, d); else applyPhoto(el, d); });
     $$('[data-c-gallery]').forEach(function (el) { applyGallery(el, d); });
+    $$('[data-c-opt]').forEach(function (el) { applyOpt(el, d); });
+    $$('[data-c-cover]').forEach(function (el) { applyCover(el, d); });
     CMS.vars = makeVars(d);
     applyVars(CMS.vars);
     fitWidths();
@@ -569,6 +621,14 @@
       if (mode && !(k in out) && el.getAttribute('data-c-as') !== 'flat') out[k] = mode.read(el, opts(el));
     });
     $$('[data-c-reviews]').forEach(function (el) { out[el.getAttribute('data-c-reviews')] = readReviews(el); });
+    /* простые списки комплекта (data-cms-list): пункт = поля [data-cms-field] */
+    $$('[data-cms-list]').forEach(function (el) {
+      out[el.getAttribute('data-cms-list')] = Array.prototype.filter.call(el.children, function (c) { return c.tagName !== 'TEMPLATE' && c.hasAttribute('data-cms-item'); }).map(function (it) {
+        var o = {};
+        $$('[data-cms-field]', it).forEach(function (f) { o[f.getAttribute('data-cms-field')] = squeeze(f.textContent); });
+        return o;
+      });
+    });
     $$('[data-c-cons]').forEach(function (el) { out[el.getAttribute('data-c-cons')] = readCons(el); });
     $$('[data-c-ph]').forEach(function (el) {
       var o = el.getAttribute('data-c-orig') || '';
@@ -583,6 +643,7 @@
     return out;
   };
   CMS.articles = articles;
+  CMS.materials = materials;
   CMS.blocks = function (el, text, o) { MODES.blocks.write(el, MODES.blocks.canon(text), o || { li: 'strip', h: true }); };
   CMS.flat = function (key) { var v = CMS.data && CMS.data[key]; return typeof v === 'string' && squeeze(v) ? squeeze(v) : ''; };
   CMS.paras = function (key) { var v = CMS.data && CMS.data[key]; return typeof v === 'string' ? paras(v) : []; };
